@@ -6,12 +6,20 @@
    
 }
 
-body{
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*background: linear-gradient(135deg, #000000, #000000, #000000);*/
+  
+    overflow: hidden;
+    perspective: 1000px;
+
     padding-top: 40px;
     background-color: #000000; 
     color: #000000;
 }
-
 .menu{
   display: flex;
   flex-wrap: wrap;
