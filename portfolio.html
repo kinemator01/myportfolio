@@ -1,63 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Banele Phali</title>
-        <link rel="stylesheet" media="screen" href="styles.css" type="text/css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Banele Phali: 2nd-Year Computer Engineering Student at CPUT | Web & App Projects from Cape Town">
+    <meta name="keywords" content="computer engineering, portfolio, web development, app development, machine learning, Cape Town, Java, AI, CPUT, Banele Phali">
+    <title>Banele Phali - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
 <body>
-<div id="particles-js"> </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
-
-
- <section>
-
-<div class="nav-links">
-<nav >
-    <ul class="menu">
-        <li><a href="#home"><button>Home</button></a></li>
-        <li><a href="#about"><button>About </button></a></li>
-        <li><a href="#projects"><button>Projects</button></a></li>
-        <li><a href="#contact"><button>Contact</button></a></li> 
-
-    </ul>
-</nav>    </div>
-</section>
-<br id="home"><br><br><br><br><br>
-<div class="pic_and_welcome">
-
-      
-        <div class="welcome">
-            <h2 class="welcome-message">Hi, I'm </h2>
-           
-             <h1 class= "welcome-message">BANELE PHALI</h1>
-             
-              <h2 class= "welcome-message"> from Cape Town</h2>
-
-              <h3> Aspiring Software Engineer / <br> 2nd Year Computer Engineering Student at CPUT</h3>
-              </div>
-
-              <div class="my_image" >
-            <nav>
-                <img src="images/banele_img1.jpg" alt="Me">
-            </nav>
+    <!-- Hero Section with Profile Carousel and Typing Animation -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-carousel">
+                <img src="images/profile1.jpg" alt="Banele Phali Profile Image 1" class="profile-img active">
+                <img src="images/profile2.jpg" alt="Banele Phali Profile Image 2" class="profile-img">
+                <img src="images/profile3.jpg" alt="Banele Phali Profile Image 3" class="profile-img">
+            </div>
+            <h1>Banele Phali</h1>
+            <p class="subtitle">And I'm a <span class="typing-text" aria-live="polite"></span></p>
+            <p class="hero-text">A 2nd-year Computer Engineering student at CPUT, passionate about building impactful web and app solutions in Cape Town with Java, and machine learning.</p>
+            <a href="resume.pdf" download class="download-btn">Download CV</a>
         </div>
+    </section>
 
+    <!-- About Section with Read More Animation -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>About Me</h2>
+            <h3>2nd-Year Computer Engineering Student at CPUT</h3>
+            <p>I'm Banele Phali, a dedicated 2nd-year Computer Engineering student at the Cape Peninsula University of Technology (CPUT) in Cape Town. From struggling with my first lines of code to coding daily, I've built projects like an AI-powered learning game and responsive websites. My next step is creating innovative apps with machine learning.</p>
+       
+           
+        </div>
+    </section>
 
-</div>
+    <!-- Projects Section with Horizontal Scroll Gallery and Alternating Images -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-gallery">
+                <button class="gallery-btn gallery-btn-left" aria-label="Scroll gallery left">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="gallery-track">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="images/jotter1.jpg" alt="Java Notepad Screenshot 1" class="project-img active">
+                            <img src="images/jotter2.jpg" alt="Java Notepad Screenshot 2" class="project-img">
+                        </div>
+                        <h3>Java Notepad</h3>
+                        <p>A lightweight desktop text editor built with Java Swing, featuring file I/O and syntax highlighting.</p>
+                        <p><strong>Technologies:</strong> Java, Swing, File I/O</p>
+                        <a href="https://github.com/kinemator01/Jotter.java" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Java Notepad on GitHub">View Project</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="images/ilanga1.jpg" alt="Landscaping Website Screenshot 1" class="project-img active">
+                           <img src="images/ilanga2.jpg" alt="Landscaping Website Screenshot 2" class="project-img active"> 
+                            <img src="images/ilanga3.jpg" alt="Landscaping Website Screenshot 3" class="project-img active">
+                             <img src="images/ilanga4.jpg" alt="Landscaping Website Screenshot 4" class="project-img active">
+                             
+                                
+                        </div>
+                        <h3>Landscaping Website</h3>
+                        <p>A responsive, SEO-optimized website for a landscaping business, showcasing services and portfolios.</p>
+                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                        <a href="https://github.com/kinemator01/iLangaLandscapingWebsite" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Landscaping Website on GitHub">View Project</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="images/brainrush1.jpg" alt="BrainRush Game Screenshot 1" class="project-img active">
+                            <img src="images/brainrush2.jpg" alt="BrainRush Game Screenshot 2" class="project-img">
+                               <img src="images/brainrush3.jpg" alt="BrainRush Game Screenshot 3" class="project-img">
+                               
+                        </div>
+                        <h3>BrainRush(under construction)</h3>
+                        <p>An AI-powered educational web game with interactive quizzes and Google AI analytics. Google AI hackathon project.</p>
+                        <p><strong>Technologies:</strong> HTML, CSS,JavaScript,Python,Firebase,Google AI APIs</p>
+                        <a href="https://github.com/kinemator01/BrainRush" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View BrainRush on GitHub">View Project</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="images/kowt.jpg" alt="Kowtinminion Website Screenshot 1" class="project-img active">
+                            <img src="images/kowt2.jpg" alt="Kowtinminion Website Screenshot 2" class="project-img">
+                               <img src="images/kowt3.jpg" alt="Kowtinminion Website Screenshot 3" class="project-img">
+                        </div>
+                        <h3>Kowtinminion Website(COMING SOON)</h3>
+                        <p>A custom brand website with dynamic features and responsive design for enhanced online presence.</p>
+                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                        <a href="https://github.com/banelephali/kowtinminion-website" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Kowtinminion Website on GitHub">View Project</a>
+                    </div>
+                </div>
+                <button class="gallery-btn gallery-btn-right" aria-label="Scroll gallery right">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <input type="text" name="subject" placeholder="Email Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; Banele Phali - All Rights Reserved</p>
+    </footer>
 
-<section class="about" id="about">
-  <h1 class="welcome-message">About Me</h1>
-
-  <p>Hi, I'm Banele Johnatan Phali, a second-year Computer Engineering student with a passion for software development. I'm fascinated by artificial intelligence and enjoy creating problem-solving software solutions, learning new technologies, and collaborating with others. My goal is to create innovative solutions that make a positive impact. Outside of coding, you can find me on the track or football field doing what I love. Take a look at my projects, and feel free to reach out if you'd like to collaborate or learn more.</p>
-</section>
-
-
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
