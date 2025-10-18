@@ -280,7 +280,7 @@ h3 {
 }
 
 .project-card {
-    flex: 0 0 90%; /* Fixed card width */
+    flex: 0 0 400px; /* Fixed card width */
     background-color: #003366;
     padding: 1.5rem;
     border-radius: 10px;
@@ -496,5 +496,6 @@ h3 {
         font-size: 0.9rem;
     }
 }
+
 
 
