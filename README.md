@@ -1,7 +1,7 @@
 # 👨🏽‍💻 Banele Phali – Personal Portfolio  
 
 This repo holds the code for my **personal portfolio website**.  
-Right now it’s pretty simple — just an intro, an about section, and navigation. I’m leaving it as a work-in-progress until I’ve built more projects worth showcasing.  
+Right now it’s pretty simple — just an intro, an about section, and navigation. I’m leaving it as a work-in-progress until I’ve built more projects worth showcasing(I've built quite a few now!!)
 
 ---
 
