@@ -109,9 +109,15 @@ body {
 
 .hero-text {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #ffffff;
     line-height: 1.7;
+}
+
+.hero-text-secondary {
+    font-size: 1rem;
+    color: #b3d9ff;
+    margin-bottom: 1.5rem;
 }
 
 .hero-proof {
