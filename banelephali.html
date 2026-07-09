@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Banele Phali: 2nd-Year Computer Engineering Student at CPUT | Web & App Projects from Cape Town">
+    <meta name="description" content="Banele Phali: Software Engineer & 3rd-Year Computer Engineering student at CPUT — production web systems, Cape Town">
     <meta name="keywords" content="computer engineering, portfolio, web development, app development, machine learning, Cape Town, Java, AI, CPUT, Banele Phali">
     <title>Banele Phali - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
@@ -16,7 +16,7 @@
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
-          <!--  <li><a href="#contact" class="nav-link">Contact</a></li> -->
+            <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -28,9 +28,16 @@
                 <img src="images/profile2.jpg" alt="Banele Phali Profile Image 2" class="profile-img">
                 <img src="images/profile3.jpg" alt="Banele Phali Profile Image 3" class="profile-img">
             </div>
-            <h1>Banele Phali</h1>
-            <p class="subtitle">And I'm a <span class="typing-text" aria-live="polite"></span></p>
-            <p class="hero-text">A Computer Engineering major, passionate about building impactful web and app solutions.</p>
+            <div class="hero-text-content">
+                <h1>Banele Phali</h1>
+                <p class="subtitle">Software Engineer</p>
+                <p class="hero-text">I build production web systems — from a training platform running daily at a Cape Town trading company to accessible tech for South African learners.</p>
+                <p class="hero-proof">Software Engineering Intern @ Westside Trading · Founder @ BetaBuilds · <span class="proof-accent">🥈 RLabs x MTN Hackathon 2026</span></p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View my work</a>
+                    <a href="https://github.com/kinemator01" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -38,8 +45,8 @@
     <section id="about" class="section about">
         <div class="container">
             <h2>About Me</h2>
-            <h3>2nd-Year Computer Engineering Student at CPUT</h3>
-            <p>I'm Banele Phali, a dedicated 2nd-year Computer Engineering student at the Cape Peninsula University of Technology (CPUT) in Cape Town. From struggling with my first lines of code to coding daily, I've built projects like an AI-powered learning game and responsive websites. My next step is creating innovative apps with machine learning.</p>
+            <h3>3rd-Year Computer Engineering Student at CPUT</h3>
+            <p>I'm Banele Phali, a 3rd-year Computer Engineering student at the Cape Peninsula University of Technology (CPUT) in Cape Town. As a Software Engineering Intern at Westside Trading, I've built and deployed a full-stack training platform (React, Node/Express, SQLite) that runs daily for the trading company. I'm also the founder of BetaBuilds, a web development agency. From my first struggling lines of code to shipping production systems, I've grown into building accessible tech that serves real users and communities across South Africa.</p>
        
            
         </div>
@@ -119,7 +126,7 @@
                         <h3>BetaBuilds Web Solutions</h3>
                         <p>A custom business website for my web development startup with dynamic features and responsive design for enhanced online presence.</p>
                         <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                        <a href="https://github.com/kinemator01/betabuilds" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Kowtinminion Website on GitHub">View Project</a>
+                        <a href="https://github.com/kinemator01/betabuilds" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View BetaBuilds Web Solutions on GitHub">View Project</a>
                     </div>
                 </div>
                 <button class="gallery-btn gallery-btn-right" aria-label="Scroll gallery right">
@@ -133,6 +140,7 @@
     <section id="contact" class="section contact">
         <div class="container">
             <h2>Contact Me</h2>
+            <!-- TODO: Replace "your-form-id" with actual Formspree form ID from https://formspree.io -->
             <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>

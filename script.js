@@ -12,38 +12,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Typing Animation
-const typingElement = document.querySelector('.typing-text');
-const texts = ['Software Engineer', 'Web Developer', 'AI Enthusiast'];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-    const currentText = texts[textIndex];
-    if (isDeleting) {
-        typingElement.textContent = currentText.substring(0, charIndex--);
-        if (charIndex < 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-            setTimeout(type, 500);
-        } else {
-            setTimeout(type, 50);
-        }
-    } else {
-        typingElement.textContent = currentText.substring(0, charIndex++);
-        if (charIndex > currentText.length) {
-            isDeleting = true;
-            setTimeout(type, 1000);
-        } else {
-            setTimeout(type, 100);
-        }
-    }
-}
-
-// Start typing animation
-type();
-
 // Profile Carousel Functionality
 const profileCarousel = document.querySelector('.profile-carousel');
 const profileImages = profileCarousel.querySelectorAll('.profile-img');
