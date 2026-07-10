@@ -903,11 +903,13 @@ h3 {
     padding: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .enhance-modal.active {
     display: flex;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .enhance-modal .enhance-close {

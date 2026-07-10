@@ -179,6 +179,7 @@ class VulaCarousel {
         const enhanceBtn = this.carouselItem.querySelector('.enhance-btn');
         const enhanceModal = this.carouselItem.querySelector('.enhance-modal');
         const closeBtn = this.carouselItem.querySelector('.enhance-close button');
+        const enhanceImage = this.carouselItem.querySelector('.enhance-image');
 
         if (enhanceBtn && enhanceModal) {
             const closeModal = () => {
@@ -202,15 +203,27 @@ class VulaCarousel {
 
             // Close modal only when clicking the dark overlay area (not the image)
             enhanceModal.addEventListener('click', (e) => {
-                // Only close if clicking directly on the modal background, not on the image
+                // Only close if clicking directly on the modal background, not on the image or close button
                 if (e.target === enhanceModal) {
                     closeModal();
                 }
             });
 
+            // Prevent clicks on image and close button from triggering overlay close
+            if (enhanceImage) {
+                enhanceImage.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
             // Close with Escape key - only when modal is active
             const escapeHandler = (e) => {
                 if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
+                    e.preventDefault();
                     closeModal();
                 }
             };
