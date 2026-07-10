@@ -1287,11 +1287,28 @@ h3 {
         width: 100%;
     }
 
+    .carousel-slide-content {
+        margin-bottom: 1.5rem;
+    }
+
     .carousel-controls-inline {
         flex-wrap: wrap;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         width: 100%;
+    }
+
+    .carousel-dots {
+        order: 1;
+    }
+
+    .carousel-nav {
+        order: 2;
+    }
+
+    .vula-tech {
+        order: 3;
+        margin-top: 1.5rem;
     }
 
     .footer {
