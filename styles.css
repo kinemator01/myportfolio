@@ -913,6 +913,18 @@ h3 {
         gap: 100px;
     }
 
+    .portfolio-item:nth-child(3) .portfolio-content p,
+    .portfolio-item:nth-child(4) .portfolio-content p,
+    .portfolio-item:nth-child(5) .portfolio-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-item:nth-child(3) .portfolio-tech,
+    .portfolio-item:nth-child(4) .portfolio-tech,
+    .portfolio-item:nth-child(5) .portfolio-tech {
+        margin-bottom: 1.5rem;
+    }
+
     .portfolio-item:nth-child(4) .portfolio-content,
     .portfolio-item:nth-child(5) .portfolio-content {
         padding: 1rem;
@@ -1098,6 +1110,18 @@ h3 {
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
         gap: 100px;
+    }
+
+    .portfolio-item:nth-child(3) .portfolio-content p,
+    .portfolio-item:nth-child(4) .portfolio-content p,
+    .portfolio-item:nth-child(5) .portfolio-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-item:nth-child(3) .portfolio-tech,
+    .portfolio-item:nth-child(4) .portfolio-tech,
+    .portfolio-item:nth-child(5) .portfolio-tech {
+        margin-bottom: 1.5rem;
     }
 
     .portfolio-item:nth-child(4) .portfolio-content,
