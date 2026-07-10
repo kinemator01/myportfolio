@@ -837,44 +837,12 @@ h3 {
 
 /* Vula Carousel */
 .vula-carousel {
-    min-height: 70vh;
+    min-height: 85vh;
 }
 
 .vula-carousel .carousel-wrapper {
     position: relative;
     flex: 0 0 55%;
-}
-
-.enhance-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    padding: 0.6rem 1rem;
-    background-color: #0055aa;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    border-radius: 6px;
-    z-index: 5;
-    transition: all 0.3s ease;
-}
-
-.enhance-btn:hover {
-    background-color: #ffffff;
-    color: #0055aa;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 85, 170, 0.3);
-}
-
-.enhance-btn:active {
-    transform: translateY(0);
 }
 
 .carousel-image {
@@ -887,73 +855,6 @@ h3 {
 
 .carousel-image.active {
     opacity: 1;
-}
-
-/* Enhanced image modal */
-.enhance-modal {
-    display: none !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: rgba(15, 19, 25, 0.98) !important;
-    z-index: 9999 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 2rem !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
-    pointer-events: none !important;
-}
-
-.enhance-modal.active {
-    display: flex !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-.enhance-modal .enhance-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 10000;
-}
-
-.enhance-modal .enhance-close button {
-    padding: 0.6rem 1rem;
-    background-color: #ffffff;
-    border: 2px solid #ffffff;
-    color: #0055aa;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.enhance-modal .enhance-close button:hover {
-    background-color: #0055aa;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.enhance-modal .enhance-close button:active {
-    transform: translateY(0);
-}
-
-.enhance-image {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    cursor: zoom-out;
-    pointer-events: auto;
 }
 
 .vula-carousel .portfolio-content {
@@ -1028,11 +929,6 @@ h3 {
 .carousel-prev:active,
 .carousel-next:active {
     transform: scale(0.9);
-}
-
-/* Prevent layout shift when modal opens (overflow hidden) */
-body.enhance-modal-open {
-    overflow: hidden;
 }
 
 /* Accessibility: Disable animations for users who prefer reduced motion */

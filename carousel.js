@@ -144,12 +144,6 @@ class VulaCarousel {
             img.classList.add('active');
         }, 150);
 
-        // Update enhanced image
-        const enhancedImg = this.carouselItem.querySelector('.enhance-image');
-        if (enhancedImg) {
-            enhancedImg.src = slide.img;
-        }
-
         // Update content
         this.contentArea.querySelector('.portfolio-tag').textContent = slide.tag;
         this.contentArea.querySelector('h3').textContent = slide.title;
@@ -175,78 +169,6 @@ class VulaCarousel {
         this.nextBtn.addEventListener('click', () => this.nextSlide());
         this.prevBtn.addEventListener('click', () => this.prevSlide());
 
-        // Enhance image button
-        const enhanceBtn = this.carouselItem.querySelector('.enhance-btn');
-        const enhanceModal = this.carouselItem.querySelector('.enhance-modal');
-        const closeBtn = this.carouselItem.querySelector('.enhance-close button');
-        const enhanceImage = this.carouselItem.querySelector('.enhance-image');
-
-        if (enhanceBtn && enhanceModal) {
-            let isModalOpen = false;
-
-            const closeModal = () => {
-                if (!isModalOpen) return;
-                isModalOpen = false;
-                enhanceModal.classList.remove('active');
-                document.body.classList.remove('enhance-modal-open');
-                // Resume autoplay if not in reduced motion mode
-                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    this.startAutoplay();
-                }
-            };
-
-            const openModal = () => {
-                if (isModalOpen) return;
-                isModalOpen = true;
-                enhanceModal.classList.add('active');
-                document.body.classList.add('enhance-modal-open');
-                // Pause autoplay while modal is open
-                this.clearAutoplay();
-            };
-
-            enhanceBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openModal();
-            });
-
-            closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                closeModal();
-            });
-
-            // Close modal only when clicking the dark overlay area (not the image)
-            enhanceModal.addEventListener('click', (e) => {
-                if (e.target === enhanceModal) {
-                    closeModal();
-                }
-            }, false);
-
-            // Prevent any clicks inside modal from bubbling
-            enhanceImage.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-
-            // Close with Escape key - ONLY close if explicitly pressed
-            const escapeHandler = (e) => {
-                if (e.key === 'Escape' && isModalOpen) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeModal();
-                }
-            };
-
-            document.addEventListener('keydown', escapeHandler, true);
-
-            // Safety check: re-apply active class if it gets removed while modal should be open
-            const observer = new MutationObserver(() => {
-                if (isModalOpen && !enhanceModal.classList.contains('active')) {
-                    enhanceModal.classList.add('active');
-                    document.body.classList.add('enhance-modal-open');
-                }
-            });
-
-            observer.observe(enhanceModal, { attributes: true, attributeFilter: ['class'] });
-        }
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
