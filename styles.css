@@ -829,8 +829,7 @@ h3 {
         animation: none !important;
     }
 
-    .portfolio-content,
-    .carousel-slide-content {
+    .portfolio-content {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
@@ -1442,21 +1441,6 @@ h3 {
     margin-top: auto;
 }
 
-.slide-counter-inline {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    color: rgba(201, 162, 39, 0.8);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
-}
-
-.carousel-slide-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    flex: 1;
-}
 
 .carousel-controls-inline {
     display: flex;
