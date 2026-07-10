@@ -184,11 +184,17 @@ class VulaCarousel {
             const closeModal = () => {
                 enhanceModal.classList.remove('active');
                 document.body.style.overflow = '';
+                // Resume autoplay if not in reduced motion mode
+                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    this.startAutoplay();
+                }
             };
 
             const openModal = () => {
                 enhanceModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                // Pause autoplay while modal is open
+                this.clearAutoplay();
             };
 
             enhanceBtn.addEventListener('click', openModal);
@@ -202,7 +208,7 @@ class VulaCarousel {
                 }
             });
 
-            // Close with Escape key
+            // Close with Escape key - only when modal is active
             const escapeHandler = (e) => {
                 if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
                     closeModal();
@@ -210,19 +216,6 @@ class VulaCarousel {
             };
 
             document.addEventListener('keydown', escapeHandler);
-
-            // Prevent carousel interaction when modal is open
-            enhanceModal.addEventListener('mouseenter', () => {
-                this.clearAutoplay();
-            });
-
-            enhanceModal.addEventListener('mouseleave', () => {
-                if (!enhanceModal.classList.contains('active')) {
-                    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                        this.startAutoplay();
-                    }
-                }
-            });
         }
 
         // Keyboard navigation
