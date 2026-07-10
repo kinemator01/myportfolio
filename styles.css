@@ -904,21 +904,12 @@ h3 {
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    visibility: hidden;
 }
 
 .enhance-modal.active {
     display: flex;
     opacity: 1;
     pointer-events: auto;
-    visibility: visible;
-}
-
-/* Block all interaction with page when modal is open */
-body.enhance-modal-open {
-    overflow: hidden !important;
-    position: fixed;
-    width: 100%;
 }
 
 .enhance-modal .enhance-close {

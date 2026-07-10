@@ -184,9 +184,7 @@ class VulaCarousel {
         if (enhanceBtn && enhanceModal) {
             const closeModal = () => {
                 enhanceModal.classList.remove('active');
-                document.body.classList.remove('enhance-modal-open');
                 document.body.style.overflow = '';
-                document.body.style.position = '';
                 // Resume autoplay if not in reduced motion mode
                 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     this.startAutoplay();
@@ -195,9 +193,7 @@ class VulaCarousel {
 
             const openModal = () => {
                 enhanceModal.classList.add('active');
-                document.body.classList.add('enhance-modal-open');
                 document.body.style.overflow = 'hidden';
-                document.body.style.position = 'fixed';
                 // Pause autoplay while modal is open
                 this.clearAutoplay();
             };
@@ -207,36 +203,15 @@ class VulaCarousel {
 
             // Close modal only when clicking the dark overlay area (not the image)
             enhanceModal.addEventListener('click', (e) => {
-                // Only close if clicking directly on the modal background, not on the image or close button
+                // Only close if clicking directly on the modal background
                 if (e.target === enhanceModal) {
                     closeModal();
                 }
-            });
-
-            // Prevent clicks on image and close button from triggering overlay close
-            if (enhanceImage) {
-                enhanceImage.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            }
-
-            closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-
-            // Block all document clicks when modal is open
-            const globalClickHandler = (e) => {
-                if (enhanceModal.classList.contains('active')) {
-                    e.stopPropagation();
-                }
-            };
-
-            document.addEventListener('click', globalClickHandler, true);
+            }, false);
 
             // Close with Escape key - only when modal is active
             const escapeHandler = (e) => {
                 if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
-                    e.preventDefault();
                     closeModal();
                 }
             };
@@ -244,10 +219,8 @@ class VulaCarousel {
             document.addEventListener('keydown', escapeHandler);
         }
 
-        // Keyboard navigation - but not when enhance modal is open
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            const enhanceModal = this.carouselItem.querySelector('.enhance-modal');
-            if (enhanceModal && enhanceModal.classList.contains('active')) return;
             if (this.carouselItem.querySelector(':hover')) return;
             if (e.key === 'ArrowRight') this.nextSlide();
             if (e.key === 'ArrowLeft') this.prevSlide();
