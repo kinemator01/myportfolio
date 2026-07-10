@@ -1002,8 +1002,8 @@ h3 {
     }
 
     .vula-carousel {
-        width: 100%;
-        margin-left: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
         padding: 2rem 1.5rem;
         min-height: auto;
         max-width: 100%;
@@ -1234,6 +1234,8 @@ h3 {
     }
 
     .vula-carousel {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
         padding: 1.5rem 1rem;
     }
 
