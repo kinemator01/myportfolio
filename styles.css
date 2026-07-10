@@ -1287,7 +1287,17 @@ h3 {
         width: 100%;
     }
 
+    .slide-counter-inline {
+        display: none;
+    }
+
     .carousel-slide-content {
+        margin-bottom: 1.5rem;
+        order: 1;
+    }
+
+    .vula-tech {
+        order: 2;
         margin-bottom: 1.5rem;
     }
 
@@ -1296,19 +1306,15 @@ h3 {
         flex-direction: column;
         gap: 1.5rem;
         width: 100%;
+        order: 3;
     }
 
     .carousel-dots {
-        order: 1;
+        display: none;
     }
 
     .carousel-nav {
-        order: 2;
-    }
-
-    .vula-tech {
-        order: 3;
-        margin-top: 1.5rem;
+        width: 100%;
     }
 
     .footer {
