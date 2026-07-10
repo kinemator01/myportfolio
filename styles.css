@@ -872,10 +872,11 @@ h3 {
     .portfolio-item {
         flex-direction: column;
         gap: 2rem;
-        padding: 3rem 1.5rem;
+        padding: 2rem 1.5rem;
         border-radius: 0;
-        width: auto;
+        width: 100%;
         margin-left: 0;
+        min-height: auto;
     }
 
     .portfolio-item:nth-child(even) {
@@ -887,12 +888,15 @@ h3 {
     }
 
     .portfolio-image {
-        flex: 0 0 auto;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        flex: 0 0 100%;
+        width: 100%;
+        grid-template-columns: 1fr;
+        max-height: 250px;
     }
 
     .portfolio-content {
         padding: 0;
+        flex: 0 0 100%;
     }
 
     .portfolio-content h3 {
@@ -927,24 +931,41 @@ h3 {
     }
 
     .vula-carousel {
-        width: auto;
+        width: 100%;
         margin-left: 0;
         padding: 2rem 1.5rem;
+        min-height: auto;
     }
 
     .vula-carousel .carousel-wrapper {
         flex: 0 0 100%;
+        width: 100%;
+        height: auto;
     }
 
     .vula-carousel .portfolio-content {
         flex: 0 0 100%;
+        width: 100%;
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .carousel-controls-inline {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .carousel-nav {
+        justify-content: center;
     }
 
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
         min-height: auto;
+    }
+
+    .footer {
+        padding: 2rem 1.5rem;
     }
 
     .footer-top {
@@ -955,6 +976,11 @@ h3 {
 
     .footer-social {
         justify-content: center;
+    }
+
+    .footer-divider {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
@@ -1044,24 +1070,75 @@ h3 {
     }
 
     .portfolio-item {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .portfolio-image {
+        max-height: 200px;
+    }
+
+    .portfolio-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .portfolio-content p {
+        font-size: 0.9rem;
     }
 
     .vula-carousel {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
     }
 
     .vula-carousel .carousel-wrapper {
-        min-height: 300px;
+        height: auto;
+        min-height: 250px;
+    }
+
+    .carousel-image {
+        max-height: 250px;
+    }
+
+    .slide-counter-inline {
+        font-size: 0.75rem;
+    }
+
+    .carousel-controls-inline {
+        gap: 0.75rem;
+    }
+
+    .carousel-nav {
+        gap: 0.5rem;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
     }
 
     .footer {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-contact {
+        font-size: 0.9rem;
+    }
+
+    .footer-center h3 {
+        font-size: 2rem;
     }
 
     .footer-divider {
-        width: calc(100vw - 2rem);
-        margin-left: calc(-50vw + 50% - 0.5rem);
+        margin: 1rem 0;
+    }
+
+    .section {
+        padding: 2rem 0;
+    }
+
+    h2 {
+        font-size: 1.8rem;
     }
 
     .modal-content {
