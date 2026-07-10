@@ -846,30 +846,34 @@ h3 {
 
 .enhance-btn {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(0, 85, 170, 0.9);
-    border: none;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.6rem 1rem;
+    background-color: #0055aa;
+    border: 2px solid #ffffff;
     color: #ffffff;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
     z-index: 5;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .enhance-btn:hover {
-    background-color: #0055aa;
-    transform: scale(1.1);
+    background-color: #ffffff;
+    color: #0055aa;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 85, 170, 0.3);
 }
 
 .enhance-btn:active {
-    transform: scale(0.95);
+    transform: translateY(0);
 }
 
 .carousel-image {
