@@ -1000,6 +1000,9 @@ h3 {
 .portfolio-item:nth-child(4),
 .portfolio-item:nth-child(5) {
     min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 4rem 2rem;
 }
 
 .vula-carousel .carousel-wrapper {
