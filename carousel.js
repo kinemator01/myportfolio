@@ -182,7 +182,11 @@ class VulaCarousel {
         const enhanceImage = this.carouselItem.querySelector('.enhance-image');
 
         if (enhanceBtn && enhanceModal) {
+            let isModalOpen = false;
+
             const closeModal = () => {
+                if (!isModalOpen) return;
+                isModalOpen = false;
                 enhanceModal.classList.remove('active');
                 document.body.classList.remove('enhance-modal-open');
                 // Resume autoplay if not in reduced motion mode
@@ -192,31 +196,46 @@ class VulaCarousel {
             };
 
             const openModal = () => {
+                if (isModalOpen) return;
+                isModalOpen = true;
                 enhanceModal.classList.add('active');
                 document.body.classList.add('enhance-modal-open');
                 // Pause autoplay while modal is open
                 this.clearAutoplay();
             };
 
-            enhanceBtn.addEventListener('click', openModal);
-            closeBtn.addEventListener('click', closeModal);
+            enhanceBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openModal();
+            });
+
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeModal();
+            });
 
             // Close modal only when clicking the dark overlay area (not the image)
             enhanceModal.addEventListener('click', (e) => {
-                // Only close if clicking directly on the modal background
                 if (e.target === enhanceModal) {
                     closeModal();
                 }
             }, false);
 
-            // Close with Escape key - only when modal is active
+            // Prevent any clicks inside modal from bubbling
+            enhanceImage.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Close with Escape key - ONLY close if explicitly pressed
             const escapeHandler = (e) => {
-                if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
+                if (e.key === 'Escape' && isModalOpen) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     closeModal();
                 }
             };
 
-            document.addEventListener('keydown', escapeHandler);
+            document.addEventListener('keydown', escapeHandler, true);
         }
 
         // Keyboard navigation
