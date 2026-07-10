@@ -184,7 +184,7 @@ class VulaCarousel {
         if (enhanceBtn && enhanceModal) {
             const closeModal = () => {
                 enhanceModal.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.classList.remove('enhance-modal-open');
                 // Resume autoplay if not in reduced motion mode
                 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     this.startAutoplay();
@@ -193,7 +193,7 @@ class VulaCarousel {
 
             const openModal = () => {
                 enhanceModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.classList.add('enhance-modal-open');
                 // Pause autoplay while modal is open
                 this.clearAutoplay();
             };

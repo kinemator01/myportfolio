@@ -14,6 +14,7 @@ body {
     line-height: 1.6;
     color: #ffffff;
     background-color: #0055aa; /* Primary blue theme */
+    scrollbar-gutter: stable;
 }
 
 /* Navigation */
@@ -1027,6 +1028,11 @@ h3 {
 .carousel-prev:active,
 .carousel-next:active {
     transform: scale(0.9);
+}
+
+/* Prevent layout shift when modal opens (overflow hidden) */
+body.enhance-modal-open {
+    overflow: hidden;
 }
 
 /* Accessibility: Disable animations for users who prefer reduced motion */
