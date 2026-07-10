@@ -1004,7 +1004,7 @@ h3 {
     .vula-carousel {
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        padding: 2rem 1.5rem;
+        padding: 2rem 1rem;
         min-height: auto;
         max-width: 100%;
         box-sizing: border-box;
