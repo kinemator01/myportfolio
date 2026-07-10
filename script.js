@@ -244,3 +244,26 @@ modal.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// Theme Switcher
+const themeInputs = document.querySelectorAll('.theme-input');
+const savedTheme = localStorage.getItem('theme') || 'black';
+
+if (savedTheme === 'blue') {
+    document.body.classList.add('blue-theme');
+    document.querySelector('input[value="blue"]').checked = true;
+} else {
+    document.querySelector('input[value="black"]').checked = true;
+}
+
+themeInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+        if (e.target.value === 'blue') {
+            document.body.classList.add('blue-theme');
+            localStorage.setItem('theme', 'blue');
+        } else {
+            document.body.classList.remove('blue-theme');
+            localStorage.setItem('theme', 'black');
+        }
+    });
+});

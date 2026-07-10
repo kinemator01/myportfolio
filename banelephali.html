@@ -16,6 +16,16 @@
             <li><a href="#home" class="nav-link">Home</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
         </ul>
+        <div class="theme-switcher">
+            <label class="theme-radio">
+                <input type="radio" name="theme" value="black" class="theme-input" checked />
+                <span class="theme-dot"></span>
+            </label>
+            <label class="theme-radio">
+                <input type="radio" name="theme" value="blue" class="theme-input" />
+                <span class="theme-dot"></span>
+            </label>
+        </div>
     </nav>
 
     <!-- Hero Section with Profile Carousel and Typing Animation -->
@@ -52,7 +62,7 @@
                     </div>
                     <div class="portfolio-content">
                         <span class="portfolio-tag">Production System</span>
-                        <h3>WST Training Matrix</h3>
+                        <h3><span class="project-number">Project I:</span> WST Training Matrix</h3>
                         <p>Enterprise-grade training management platform built as sole developer. Full-stack implementation with modern frontend, robust API, and secure database. Now in daily production use.</p>
                         <div class="portfolio-tech">
                             <span class="tech-chip">React</span>
@@ -82,10 +92,12 @@
                             <div class="carousel-dots"></div>
                             <div class="carousel-nav">
                                 <button class="carousel-prev" aria-label="Previous slide">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <i class="bi bi-chevron-left"></i>
+                                    Previous
                                 </button>
                                 <button class="carousel-next" aria-label="Next slide">
-                                    <i class="fas fa-chevron-right"></i>
+                                    Next
+                                    <i class="bi bi-chevron-right"></i>
                                 </button>
                             </div>
                         </div>
@@ -99,7 +111,7 @@
                     </div>
                     <div class="portfolio-content">
                         <span class="portfolio-tag">Client Project</span>
-                        <h3>AS Driving School</h3>
+                        <h3><span class="project-number">Project III:</span> AS Driving School</h3>
                         <p>Responsive marketing site built through BetaBuilds. Features services, pricing information, and an enquiry flow optimized for mobile-first, data-conscious users. The client's first web presence.</p>
                         <div class="portfolio-tech">
                             <span class="tech-chip">HTML</span>
@@ -119,7 +131,7 @@
                     </div>
                     <div class="portfolio-content">
                         <span class="portfolio-tag">Client Project</span>
-                        <h3>Ilanga Landscaping</h3>
+                        <h3><span class="project-number">Project IV:</span> Ilanga Landscaping</h3>
                         <p>SEO-optimized responsive website for an established landscaping business. Showcases their services and portfolio work, making them discoverable to customers searching online.</p>
                         <div class="portfolio-tech">
                             <span class="tech-chip">HTML</span>
@@ -140,7 +152,7 @@
                     </div>
                     <div class="portfolio-content">
                         <span class="portfolio-tag">Founder</span>
-                        <h3>BetaBuilds</h3>
+                        <h3><span class="project-number">Project V:</span> BetaBuilds</h3>
                         <p>Youth-run web agency making professional web presence accessible to Cape Town small businesses. Client delivery from discovery to launch, tiered service packages, and ongoing maintenance plans.</p>
                         <div class="portfolio-tech">
                             <span class="tech-chip">Client Management</span>
@@ -159,7 +171,31 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; Banele Phali - All Rights Reserved</p>
+        <div class="footer-divider footer-divider-top"></div>
+        <div class="footer-top">
+            <div class="footer-contact">
+                <a href="mailto:banelephali060@gmail.com" class="footer-email">banelephali060@gmail.com</a>
+                <a href="tel:0680603929" class="footer-phone">068 060 3929</a>
+            </div>
+            <div class="footer-center">
+                <h3>BP</h3>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/kinemator01" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/banele-phali-654b293ba" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/kinem4tor" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 BP. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

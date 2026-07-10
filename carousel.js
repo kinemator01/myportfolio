@@ -3,7 +3,7 @@ const vulaSlides = [
     {
         img: 'images/Vula%20Access/slide-01.jpg',
         tag: 'Pitch Deck',
-        title: 'Vula Access',
+        title: 'Project II: Vula Access',
         desc: 'Opening the door to higher education, one SMS at a time. A free, MTN-powered platform that matches every learner to the bursaries they qualify for — built for the MTN Opportunity Mixer 2026.'
     },
     {
@@ -154,7 +154,11 @@ class VulaCarousel {
 
         // Update content
         this.contentArea.querySelector('.portfolio-tag').textContent = slide.tag;
-        this.contentArea.querySelector('h3').textContent = slide.title;
+        const h3 = this.contentArea.querySelector('h3');
+        const titleText = slide.title.startsWith('Project II:')
+            ? `<span class="project-number">Project II:</span> ${slide.title.replace('Project II: ', '')}`
+            : slide.title;
+        h3.innerHTML = titleText;
         this.contentArea.querySelector('p').textContent = slide.desc;
 
         // Update slide counter
