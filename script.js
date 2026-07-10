@@ -12,6 +12,40 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Scroll Reveal with IntersectionObserver
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target); // Reveal once only
+        }
+    });
+}, { threshold: 0.15 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Active Nav Link Highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}, { threshold: 0.5 });
+
+sections.forEach(section => navObserver.observe(section));
+
 // Profile Carousel Functionality
 const profileCarousel = document.querySelector('.profile-carousel');
 const profileImages = profileCarousel.querySelectorAll('.profile-img');
@@ -31,81 +65,6 @@ function rotateProfileImages() {
 // Start profile image rotation
 rotateProfileImages();
 setInterval(rotateProfileImages, 3000); // Rotate every 3 seconds
-
-// Project Images Alternating Functionality
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    const images = card.querySelectorAll('.project-img');
-    const altTexts = Array.from(images).map(img => img.alt);
-    let currentImageIndex = 0;
-
-    function rotateImages() {
-        images.forEach((img, index) => {
-            img.classList.toggle('active', index === currentImageIndex);
-            if (index === currentImageIndex) {
-                card.querySelector('.project-img-container').setAttribute('aria-label', altTexts[index]);
-            }
-        });
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
-
-    // Start rotating images for this card
-    rotateImages();
-    setInterval(rotateImages, 3000); // Rotate every 3 seconds
-});
-
-// Projects Gallery Scroll Functionality
-const galleryTrack = document.querySelector('.gallery-track');
-const galleryLeftBtn = document.querySelector('.gallery-btn-left');
-const galleryRightBtn = document.querySelector('.gallery-btn-right');
-const cardWidth = 300; // Matches .project-card flex: 0 0 300px
-const scrollAmount = cardWidth + 24; // Card width + gap (1.5rem = 24px)
-
-// Debugging: Log elements to ensure they are selected
-console.log('Gallery Track:', galleryTrack);
-console.log('Left Button:', galleryLeftBtn);
-console.log('Right Button:', galleryRightBtn);
-
-if (galleryTrack && galleryLeftBtn && galleryRightBtn) {
-    // Scroll left
-    galleryLeftBtn.addEventListener('click', () => {
-        console.log('Left button clicked');
-        const currentScroll = galleryTrack.scrollLeft;
-        const newScroll = Math.max(0, currentScroll - scrollAmount);
-        galleryTrack.scrollTo({ left: newScroll, behavior: 'smooth' });
-    });
-
-    // Scroll right
-    galleryRightBtn.addEventListener('click', () => {
-        console.log('Right button clicked');
-        const currentScroll = galleryTrack.scrollLeft;
-        const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
-        const newScroll = Math.min(maxScroll, currentScroll + scrollAmount);
-        galleryTrack.scrollTo({ left: newScroll, behavior: 'smooth' });
-    });
-
-    // Keyboard accessibility for gallery buttons
-    [galleryLeftBtn, galleryRightBtn].forEach(btn => {
-        btn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                console.log(`${btn.classList.contains('gallery-btn-left') ? 'Left' : 'Right'} button key pressed`);
-                const currentScroll = galleryTrack.scrollLeft;
-                const maxScroll = galleryTrack.scrollWidth - galleryTrack.clientWidth;
-                let newScroll;
-                if (btn.classList.contains('gallery-btn-left')) {
-                    newScroll = Math.max(0, currentScroll - scrollAmount);
-                } else {
-                    newScroll = Math.min(maxScroll, currentScroll + scrollAmount);
-                }
-                galleryTrack.scrollTo({ left: newScroll, behavior: 'smooth' });
-            }
-        });
-    });
-} else {
-    console.error('Gallery elements not found');
-}
 
 // Journey Animation for Read More
 const readMoreBtn = document.querySelector('.read-more');
@@ -167,28 +126,121 @@ if (readMoreBtn && journeyOverlay && journeyText && closeJourneyBtn) {
     });
 }
 
-// View Project Links: Only prevent default for placeholder links
-document.querySelectorAll('.view-project').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const href = link.getAttribute('href');
-        if (href === '#projects' || !href.startsWith('http')) {
-            e.preventDefault();
-            alert('Please add a valid GitHub or live demo link for this project.');
-        }
-        // Valid GitHub links (starting with 'http') navigate normally
-    });
+// ============================================
+// Project Cards: Image Rotation (Crossfade)
+// ============================================
+const projectCards = document.querySelectorAll('.project-card');
+
+projectCards.forEach(card => {
+    const images = card.querySelectorAll('.project-img');
+    if (images.length < 2) return;
+
+    const altTexts = Array.from(images).map(img => img.alt);
+    let currentImageIndex = 0;
+
+    function rotateImages() {
+        images.forEach((img, index) => {
+            img.classList.toggle('active', index === currentImageIndex);
+            if (index === currentImageIndex) {
+                card.querySelector('.project-img-container').setAttribute('aria-label', altTexts[index]);
+            }
+        });
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    rotateImages();
+    setInterval(rotateImages, 4000);
 });
 
-// Basic Form Submission
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = form.querySelector('input[type="email"]').value;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
+// ============================================
+// WST Case Study Modal
+// ============================================
+const caseStudyBtn = document.querySelector('[data-modal="wst-modal"]');
+const modal = document.createElement('div');
+modal.id = 'wst-modal';
+modal.className = 'modal';
+modal.innerHTML = `
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button class="modal-close" aria-label="Close case study modal">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h2>WST Training Matrix — Case Study</h2>
+
+        <div class="modal-section">
+            <h3>Problem</h3>
+            <p>A Cape Town trading company tracked warehouse staff training on paper — no visibility, no accountability. Training completion status was invisible to management, making it impossible to enforce compliance or plan workforce development.</p>
+        </div>
+
+        <div class="modal-section">
+            <h3>Built</h3>
+            <p>As the sole developer, I built a full-stack training management platform:</p>
+            <ul>
+                <li><strong>Frontend:</strong> React + Vite for a fast, responsive UI</li>
+                <li><strong>Backend:</strong> Node.js/Express REST API with structured endpoints</li>
+                <li><strong>Database:</strong> SQLite for reliable data persistence</li>
+                <li><strong>Auth:</strong> JWT-based authentication with role-based access control (RBAC)</li>
+                <li><strong>Deployment:</strong> Windows service on the company's own server for data sovereignty and offline capability</li>
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h3>Outcome</h3>
+            <p>The system is now in daily production use across the company's warehouses. Staff can log training completion, managers can view real-time dashboards, and compliance is finally auditable.</p>
+        </div>
+
+        <div class="modal-section modal-images">
+            <h3>Screenshots</h3>
+            <img src="images/projects/wst1.jpg" alt="WST Training Matrix - Dashboard">
+            <img src="images/projects/wst2.jpg" alt="WST Training Matrix - User List">
+        </div>
+    </div>
+`;
+document.body.appendChild(modal);
+
+const modalOverlay = modal.querySelector('.modal-overlay');
+const modalCloseBtn = modal.querySelector('.modal-close');
+
+if (caseStudyBtn) {
+    caseStudyBtn.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        modalCloseBtn.focus();
+    });
+}
+
+modalCloseBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    caseStudyBtn.focus();
+});
+
+modalOverlay.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    caseStudyBtn.focus();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        caseStudyBtn.focus();
     }
-    // For real submission, submit to Formspree
-    alert('Form submitted! (Demo - integrate with Formspree for real use)');
-    form.reset();
+});
+
+modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && modal.classList.contains('active')) {
+        const focusableElements = modal.querySelectorAll('button, a, [tabindex]');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+        }
+    }
 });

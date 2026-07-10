@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,9 +14,7 @@
     <nav class="navbar">
         <ul class="nav-list">
             <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -34,121 +32,163 @@
                 <p class="hero-text">A Computer Engineering student, passionate about building impactful web and app solutions.</p>
                 <p class="hero-proof">Software Engineering Intern @ Westside Trading · Founder @ BetaBuilds · <span class="proof-accent">🥈 RLabs x MTN Hackathon 2026</span></p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View my work</a>
+                    <a href="#projects" class="btn btn-primary">View projects</a>
                     <a href="https://github.com/kinemator01" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section with Read More Animation -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2>About Me</h2>
-            <h3>3rd-Year Computer Engineering Student at CPUT</h3>
-            <p>I'm Banele Phali, a 3rd-year Computer Engineering student at the Cape Peninsula University of Technology (CPUT) in Cape Town. As a Software Engineering Intern at Westside Trading, I've built and deployed a full-stack training platform (React, Node/Express, SQLite) that runs daily for the trading company. I'm also the founder of BetaBuilds, a web development agency. From my first struggling lines of code to shipping production systems, I've grown into building accessible tech that serves real users and communities across South Africa.</p>
-       
-           
-        </div>
-    </section>
-
-    <!-- Projects Section with Horizontal Scroll Gallery and Alternating Images -->
+    <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-gallery">
-                <button class="gallery-btn gallery-btn-left" aria-label="Scroll gallery left">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <div class="gallery-track">
-                    <div class="project-card">
-                        <div class="project-img-container">
-                            <img src="images/jotter1.jpg" alt="Java Notepad Screenshot 1" class="project-img active">
-                            <img src="images/jotter2.jpg" alt="Java Notepad Screenshot 2" class="project-img">
+            <h2 class="reveal">Projects</h2>
+            <p class="section-subtitle reveal">Explore my work and see what I've built.</p>
+            <div class="projects-grid">
+                    <!-- Card 1: WST Training Matrix -->
+                    <div class="project-card reveal">
+                        <div class="card-image-side">
+                            <div class="project-img-container">
+                                <img src="images/projects/wst1.jpg" alt="WST Training Matrix - Dashboard" class="project-img active">
+                                <img src="images/projects/wst2.jpg" alt="WST Training Matrix - User List" class="project-img">
+                            </div>
                         </div>
-                        <h3>Java Notepad</h3>
-                        <p>A lightweight desktop text editor built with Java Swing, featuring file I/O and syntax highlighting.</p>
-                        <p><strong>Technologies:</strong> Java, Swing, File I/O</p>
-                        <a href="https://github.com/kinemator01/Jotter.java" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Java Notepad on GitHub">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-container">
-                            <img src="images/ilanga1.jpg" alt="Landscaping Website Screenshot 1" class="project-img active">
-                           <img src="images/ilanga2.jpg" alt="Landscaping Website Screenshot 2" class="project-img active"> 
-                            <img src="images/ilanga3.jpg" alt="Landscaping Website Screenshot 3" class="project-img active">
-                             <img src="images/ilanga4.jpg" alt="Landscaping Website Screenshot 4" class="project-img active">
-                             
-                                
+                        <div class="card-content-side">
+                            <span class="card-category">Production System</span>
+                            <h3>WST Training Matrix</h3>
+                            <p class="card-description">
+                                Enterprise-grade training management platform built as sole developer. Full-stack implementation with modern frontend, robust API, and secure database. Now in daily production use.
+                            </p>
+                            <div class="card-tech">
+                                <span class="tech-chip">React</span>
+                                <span class="tech-chip">Node.js</span>
+                                <span class="tech-chip">Express</span>
+                                <span class="tech-chip">SQLite</span>
+                                <span class="tech-chip">JWT Auth</span>
+                                <span class="tech-chip">Production Deployment</span>
+                            </div>
+                            <div class="card-buttons">
+                                <button class="btn btn-card-primary" data-modal="wst-modal" aria-label="Open WST Training Matrix case study">
+                                    Case study
+                                </button>
+                            </div>
                         </div>
-                        <h3>Landscaping Website</h3>
-                        <p>A responsive, SEO-optimized website for a landscaping business, showcasing services and portfolios.</p>
-                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                        <a href="https://github.com/kinemator01/iLangaLandscapingWebsite" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Landscaping Website on GitHub">View Project</a>
                     </div>
-                    <div class="project-card">
-                        <div class="project-img-container">
-                            <img src="images/brainrush1.jpg" alt="BrainRush Game Screenshot 1" class="project-img active">
-                            <img src="images/brainrush2.jpg" alt="BrainRush Game Screenshot 2" class="project-img">
-                               <img src="images/brainrush3.jpg" alt="BrainRush Game Screenshot 3" class="project-img">
-                               
-                        </div>
-                        <h3>BrainRush(under construction)</h3>
-                        <p>An AI-powered educational web game with interactive quizzes and Google AI analytics. Google AI hackathon project.</p>
-                        <p><strong>Technologies:</strong> HTML, CSS,JavaScript,Python,Firebase,Google AI APIs</p>
-                        <a href="https://github.com/kinemator01/BrainRush" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View BrainRush on GitHub">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-container">
-                            <img src="images/kowt.jpg" alt="Kowtinminion Website Screenshot 1" class="project-img active">
-                            <img src="images/kowt2.jpg" alt="Kowtinminion Website Screenshot 2" class="project-img">
-                               <img src="images/kowt3.jpg" alt="Kowtinminion Website Screenshot 3" class="project-img">
-                        </div>
-                        <h3>Kowtinminion Website(COMING SOON)</h3>
-                        <p>A custom brand website with dynamic features and responsive design for enhanced online presence.</p>
-                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                        <a href="https://github.com/banelephali/kowtinminion-website" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View Kowtinminion Website on GitHub">View Project</a>
-                    </div>
-                        <div class="project-card">
-                        <div class="project-img-container">
-                            <img src="images/beta1.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                             <img src="images/beta2.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                              <img src="images/beta3.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                              <img src="images/beta4.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                             <img src="images/beta5.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                              <img src="images/beta6.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                               <img src="images/beta7.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                             <img src="images/beta8.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
-                              <img src="images/beta9.jpg" alt="Betabuilds Website Screenshot 1" class="project-img active">
 
-
-
+                    <!-- Card 2: Vula Access -->
+                    <div class="project-card reveal">
+                        <div class="card-image-side">
+                            <div class="project-img-container">
+                                <img src="images/projects/vula1.jpg" alt="Vula Access - Landing page" class="project-img active">
+                                <img src="images/projects/vula2.jpg" alt="Vula Access - Bursary results" class="project-img">
+                            </div>
                         </div>
-                        <h3>BetaBuilds Web Solutions</h3>
-                        <p>A custom business website for my web development startup with dynamic features and responsive design for enhanced online presence.</p>
-                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                        <a href="https://github.com/kinemator01/betabuilds" target="_blank" rel="noopener noreferrer" class="view-project" aria-label="View BetaBuilds Web Solutions on GitHub">View Project</a>
+                        <div class="card-content-side">
+                            <span class="card-category">🥈 2nd Place — RLabs x MTN Hackathon 2026</span>
+                            <h3>Vula Access</h3>
+                            <p class="card-description">
+                                Bursary discovery platform built in 8 hours. USSD flow for feature phones, zero-rated PWA, SMS deadline alerts. Team is now in the InnovIA incubation programme.
+                            </p>
+                            <div class="card-tech">
+                                <span class="tech-chip">USSD</span>
+                                <span class="tech-chip">PWA</span>
+                                <span class="tech-chip">JavaScript</span>
+                                <span class="tech-chip">Google AI Studio</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" aria-label="View Vula Access case study">
+                                    Case study
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <button class="gallery-btn gallery-btn-right" aria-label="Scroll gallery right">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
+
+                    <!-- Card 3: AS Driving School -->
+                    <div class="project-card reveal">
+                        <div class="card-image-side">
+                            <div class="project-img-container">
+                                <img src="images/projects/asdriving1.jpg" alt="AS Driving School - Homepage" class="project-img active">
+                                <img src="images/projects/asdriving2.jpg" alt="AS Driving School - Services" class="project-img">
+                            </div>
+                        </div>
+                        <div class="card-content-side">
+                            <span class="card-category">Client Project</span>
+                            <h3>AS Driving School</h3>
+                            <p class="card-description">
+                                Responsive marketing site built through BetaBuilds. Features services, pricing information, and an enquiry flow optimized for mobile-first, data-conscious users. The client's first web presence.
+                            </p>
+                            <div class="card-tech">
+                                <span class="tech-chip">HTML</span>
+                                <span class="tech-chip">CSS</span>
+                                <span class="tech-chip">JavaScript</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" aria-label="Visit AS Driving School website">
+                                    Visit site
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Ilanga Landscaping -->
+                    <div class="project-card reveal">
+                        <div class="card-image-side">
+                            <div class="project-img-container">
+                                <img src="images/projects/ilanga1.jpg" alt="Ilanga Landscaping - Homepage" class="project-img active">
+                                <img src="images/projects/ilanga2.jpg" alt="Ilanga Landscaping - Portfolio" class="project-img">
+                            </div>
+                        </div>
+                        <div class="card-content-side">
+                            <span class="card-category">Client Project</span>
+                            <h3>Ilanga Landscaping</h3>
+                            <p class="card-description">
+                                SEO-optimized responsive website for an established landscaping business. Showcases their services and portfolio work, making them discoverable to customers searching online.
+                            </p>
+                            <div class="card-tech">
+                                <span class="tech-chip">HTML</span>
+                                <span class="tech-chip">CSS</span>
+                                <span class="tech-chip">JavaScript</span>
+                                <span class="tech-chip">SEO</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" aria-label="Visit Ilanga Landscaping website">
+                                    Visit site
+                                </a>
+                                <a href="https://github.com/kinemator01/iLangaLandscapingWebsite" class="btn btn-card-secondary" target="_blank" rel="noopener noreferrer" aria-label="View Ilanga Landscaping GitHub repository">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: BetaBuilds -->
+                    <div class="project-card reveal">
+                        <div class="card-image-side">
+                            <div class="project-img-container">
+                                <img src="images/projects/betabuilds1.jpg" alt="BetaBuilds - Homepage" class="project-img active">
+                                <img src="images/projects/betabuilds2.jpg" alt="BetaBuilds - Portfolio" class="project-img">
+                            </div>
+                        </div>
+                        <div class="card-content-side">
+                            <span class="card-category">Founder</span>
+                            <h3>BetaBuilds</h3>
+                            <p class="card-description">
+                                Youth-run web agency making professional web presence accessible to Cape Town small businesses. Client delivery from discovery to launch, tiered service packages, and ongoing maintenance plans. Multiple delivered projects.
+                            </p>
+                            <div class="card-tech">
+                                <span class="tech-chip">Client management</span>
+                                <span class="tech-chip">HTML</span>
+                                <span class="tech-chip">CSS</span>
+                                <span class="tech-chip">JavaScript</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="https://betabuildsdevelopment.org" class="btn btn-card-primary" target="_blank" rel="noopener noreferrer" aria-label="Visit BetaBuilds website">
+                                    Visit BetaBuilds
+                                </a>
+                            </div>
+                        </div>
+                    </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <!-- TODO: Replace "your-form-id" with actual Formspree form ID from https://formspree.io -->
-            <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <input type="tel" name="phone" placeholder="Phone Number">
-                <input type="text" name="subject" placeholder="Email Subject" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
         </div>
     </section>
 
