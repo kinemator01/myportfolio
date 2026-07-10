@@ -378,10 +378,19 @@ h3 {
     gap: 1.5rem;
     align-content: flex-start;
     opacity: 0;
-    animation: slideInFromLeft 0.6s ease-out forwards;
+    transform: translateX(-60px);
+    transition: none;
 }
 
 .portfolio-item:nth-child(even) .portfolio-image {
+    transform: translateX(60px);
+}
+
+.portfolio-item.visible .portfolio-image {
+    animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.portfolio-item:nth-child(even).visible .portfolio-image {
     animation: slideInFromRight 0.6s ease-out forwards;
 }
 
@@ -1052,12 +1061,16 @@ h3 {
     height: 100%;
     object-fit: contain;
     opacity: 0;
+    transform: translateX(-60px);
     transition: opacity 0.5s ease-out;
     max-height: 600px;
+}
+
+.portfolio-item.visible .carousel-image {
     animation: slideInFromLeft 0.6s ease-out forwards;
 }
 
-.portfolio-item:nth-child(even) .carousel-image {
+.portfolio-item:nth-child(even).visible .carousel-image {
     animation: slideInFromRight 0.6s ease-out forwards;
 }
 
