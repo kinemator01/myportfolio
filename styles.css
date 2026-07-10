@@ -997,6 +997,11 @@ h3 {
     min-height: 100vh;
 }
 
+.portfolio-item:nth-child(4),
+.portfolio-item:nth-child(5) {
+    min-height: 100vh;
+}
+
 .vula-carousel .carousel-wrapper {
     position: relative;
     flex: 0 0 55%;
