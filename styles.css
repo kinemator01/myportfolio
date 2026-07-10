@@ -904,6 +904,12 @@ h3 {
         box-sizing: border-box;
     }
 
+    .portfolio-item:nth-child(3),
+    .portfolio-item:nth-child(4),
+    .portfolio-item:nth-child(5) {
+        gap: 20px;
+    }
+
     .portfolio-item:nth-child(even) {
         flex-direction: column;
     }
@@ -1074,6 +1080,12 @@ h3 {
     .portfolio-item {
         gap: 1rem;
         margin-bottom: 1rem;
+    }
+
+    .portfolio-item:nth-child(3),
+    .portfolio-item:nth-child(4),
+    .portfolio-item:nth-child(5) {
+        gap: 20px;
     }
 
     .portfolio-image {
