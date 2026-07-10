@@ -1019,8 +1019,7 @@ h3 {
     .vula-carousel .portfolio-content {
         flex: 0 0 100%;
         width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
         gap: 1rem;
     }
 
@@ -1444,7 +1443,7 @@ h3 {
 
 .vula-carousel .portfolio-content {
     flex: 0 0 45%;
-    padding-left: 2.8rem;
+    padding-left: 2rem;
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
