@@ -86,6 +86,29 @@ body {
   }
 }
 
+/* Image Slide In Animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Hero Section with Profile Carousel and Typing Animation */
 .hero {
     height: 100vh;
@@ -354,6 +377,12 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1.5rem;
     align-content: flex-start;
+    opacity: 0;
+    animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.portfolio-item:nth-child(even) .portfolio-image {
+    animation: slideInFromRight 0.6s ease-out forwards;
 }
 
 .portfolio-image img {
@@ -1025,6 +1054,11 @@ h3 {
     opacity: 0;
     transition: opacity 0.5s ease-out;
     max-height: 600px;
+    animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+.portfolio-item:nth-child(even) .carousel-image {
+    animation: slideInFromRight 0.6s ease-out forwards;
 }
 
 .carousel-image.active {
