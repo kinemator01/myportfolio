@@ -902,12 +902,22 @@ h3 {
         flex: 0 0 100%;
         width: 100%;
         grid-template-columns: 1fr;
-        max-height: 250px;
+        max-height: 300px;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .portfolio-image img {
+        width: 100%;
+        height: auto;
     }
 
     .portfolio-content {
         padding: 0;
         flex: 0 0 100%;
+        position: relative;
+        z-index: 2;
     }
 
     .portfolio-content h3 {
@@ -1044,7 +1054,23 @@ h3 {
     }
 
     .portfolio-image {
-        min-height: 180px;
+        min-height: 200px;
+        max-height: 250px;
+        width: 100%;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .portfolio-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .portfolio-content {
+        position: relative;
+        z-index: 2;
+        margin-top: 0;
     }
 
     .portfolio-content h3 {
