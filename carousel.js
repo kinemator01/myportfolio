@@ -1,4 +1,5 @@
-const slides = [
+// Vula Access carousel slides
+const vulaSlides = [
     {
         img: 'images/Vula%20Access/slide-01.jpg',
         tag: 'Pitch Deck',
@@ -97,153 +98,89 @@ const slides = [
     }
 ];
 
-let currentSlide = 0;
-let autoplayTimer = null;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+class VulaCarousel {
+    constructor() {
+        this.currentSlide = 0;
+        this.carouselItem = document.querySelector('.vula-carousel');
 
-const carouselMain = document.querySelector('.carousel-main');
-const carouselImage = document.querySelector('.carousel-image');
-const eyebrow = document.querySelector('.eyebrow');
-const slideTitle = document.querySelector('.slide-title');
-const slideDescription = document.querySelector('.slide-description');
-const currentSlideCounter = document.querySelector('.current-slide');
-const totalSlidesCounter = document.querySelector('.total-slides');
-const dotContainer = document.querySelector('.dot-navigation');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+        if (!this.carouselItem) return;
 
-// Initialize
-function init() {
-    totalSlidesCounter.textContent = String(slides.length).padStart(2, '0');
-    createDots();
-    updateSlide(0);
-    if (!prefersReducedMotion) startAutoplay();
-}
+        this.imageContainer = this.carouselItem.querySelector('.carousel-wrapper');
+        this.contentArea = this.carouselItem.querySelector('.carousel-slide-content');
+        this.dotsContainer = this.carouselItem.querySelector('.carousel-dots');
+        this.prevBtn = this.carouselItem.querySelector('.carousel-prev');
+        this.nextBtn = this.carouselItem.querySelector('.carousel-next');
 
-// Create dot navigation
-function createDots() {
-    dotContainer.innerHTML = '';
-    slides.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.className = 'dot';
-        if (idx === 0) dot.classList.add('active');
-        dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-        dot.addEventListener('click', () => goToSlide(idx));
-        dotContainer.appendChild(dot);
-    });
-}
-
-// Update slide content and layout
-function updateSlide(idx) {
-    const slide = slides[idx];
-    currentSlide = idx;
-
-    // Update counter
-    currentSlideCounter.textContent = String(idx + 1).padStart(2, '0');
-
-    // Update layout (alternate every other slide)
-    if (idx % 2 === 0) {
-        carouselMain.classList.remove('reverse');
-    } else {
-        carouselMain.classList.add('reverse');
+        this.init();
     }
 
-    // Fade out current image
-    carouselImage.classList.remove('active');
-
-    // Update image with lazy loading
-    setTimeout(() => {
-        carouselImage.src = slide.img;
-        carouselImage.classList.add('active');
-    }, 150);
-
-    // Update content with staggered animation
-    eyebrow.textContent = slide.tag;
-    slideTitle.textContent = slide.title;
-    slideDescription.textContent = slide.desc;
-
-    // Update dots
-    document.querySelectorAll('.dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === idx);
-    });
-
-    // Restart autoplay on manual navigation
-    if (!prefersReducedMotion) {
-        clearAutoplay();
-        startAutoplay();
+    init() {
+        this.createDots();
+        this.updateSlide(0);
+        this.attachEventListeners();
     }
-}
 
-// Navigation
-function goToSlide(idx) {
-    updateSlide(idx);
-}
+    createDots() {
+        this.dotsContainer.innerHTML = '';
+        vulaSlides.forEach((_, idx) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot';
+            if (idx === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+            dot.addEventListener('click', () => this.updateSlide(idx));
+            this.dotsContainer.appendChild(dot);
+        });
+    }
 
-function nextSlide() {
-    const next = (currentSlide + 1) % slides.length;
-    updateSlide(next);
-}
+    updateSlide(idx) {
+        const slide = vulaSlides[idx];
+        this.currentSlide = idx;
 
-function prevSlide() {
-    const prev = (currentSlide - 1 + slides.length) % slides.length;
-    updateSlide(prev);
-}
+        // Update image
+        const img = this.imageContainer.querySelector('.carousel-image');
+        img.classList.remove('active');
+        setTimeout(() => {
+            img.src = slide.img;
+            img.classList.add('active');
+        }, 150);
 
-// Autoplay
-function startAutoplay() {
-    if (prefersReducedMotion) return;
-    autoplayTimer = setInterval(nextSlide, 5000);
-}
+        // Update content
+        this.contentArea.querySelector('.portfolio-tag').textContent = slide.tag;
+        this.contentArea.querySelector('h3').textContent = slide.title;
+        this.contentArea.querySelector('p').textContent = slide.desc;
 
-function clearAutoplay() {
-    if (autoplayTimer) clearInterval(autoplayTimer);
-}
+        // Update dots
+        this.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === idx);
+        });
+    }
 
-// Event listeners
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
+    nextSlide() {
+        const next = (this.currentSlide + 1) % vulaSlides.length;
+        this.updateSlide(next);
+    }
 
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-});
+    prevSlide() {
+        const prev = (this.currentSlide - 1 + vulaSlides.length) % vulaSlides.length;
+        this.updateSlide(prev);
+    }
 
-// Swipe support
-let touchStartX = 0;
-let touchEndX = 0;
+    attachEventListeners() {
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
 
-carouselMain.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-carouselMain.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-        if (diff > 0) nextSlide();
-        else prevSlide();
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (this.carouselItem.querySelector(':hover')) return;
+            if (e.key === 'ArrowRight') this.nextSlide();
+            if (e.key === 'ArrowLeft') this.prevSlide();
+        });
     }
 }
 
-// Pause autoplay on hover
-carouselMain.addEventListener('mouseenter', clearAutoplay);
-carouselMain.addEventListener('mouseleave', () => {
-    if (!prefersReducedMotion) startAutoplay();
-});
-
-// Pause autoplay when tab is hidden
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        clearAutoplay();
-    } else if (!prefersReducedMotion) {
-        startAutoplay();
-    }
-});
-
-// Initialize carousel
-init();
+// Initialize carousel when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new VulaCarousel());
+} else {
+    new VulaCarousel();
+}
