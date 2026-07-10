@@ -115,6 +115,14 @@ class VulaCarousel {
     }
 
     init() {
+        // Store slide counter element
+        this.slideCounter = this.carouselItem.querySelector('.slide-num');
+        this.slideTotal = this.carouselItem.querySelector('.slide-total');
+
+        if (this.slideTotal) {
+            this.slideTotal.textContent = String(vulaSlides.length).padStart(2, '0');
+        }
+
         this.createDots();
         this.updateSlide(0);
         this.attachEventListeners();
@@ -150,9 +158,8 @@ class VulaCarousel {
         this.contentArea.querySelector('p').textContent = slide.desc;
 
         // Update slide counter
-        const slideNum = this.contentArea.querySelector('.slide-num');
-        if (slideNum) {
-            slideNum.textContent = String(idx + 1).padStart(2, '0');
+        if (this.slideCounter) {
+            this.slideCounter.textContent = String(idx + 1).padStart(2, '0');
         }
 
         // Update dots
