@@ -90,7 +90,7 @@ body {
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-120px);
   }
   to {
     opacity: 1;
@@ -101,7 +101,7 @@ body {
 @keyframes slideInFromRight {
   from {
     opacity: 0;
-    transform: translateX(60px);
+    transform: translateX(120px);
   }
   to {
     opacity: 1;
@@ -378,12 +378,12 @@ h3 {
     gap: 1.5rem;
     align-content: flex-start;
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-120px);
     transition: none;
 }
 
 .portfolio-item:nth-child(even) .portfolio-image {
-    transform: translateX(60px);
+    transform: translateX(120px);
 }
 
 .portfolio-item.visible .portfolio-image {
@@ -413,6 +413,31 @@ h3 {
     justify-content: flex-start;
     padding: 0;
     gap: 1.5rem;
+    opacity: 0;
+}
+
+.portfolio-item.visible .portfolio-content {
+    animation: fadeUp 1.2s ease-out forwards;
+}
+
+.portfolio-item.visible .portfolio-tag {
+    animation: fadeUp 1.2s ease-out forwards;
+    animation-delay: 100ms;
+}
+
+.portfolio-item.visible .portfolio-content h3 {
+    animation: fadeUp 1.2s ease-out forwards;
+    animation-delay: 200ms;
+}
+
+.portfolio-item.visible .portfolio-content p {
+    animation: fadeUp 1.2s ease-out forwards;
+    animation-delay: 300ms;
+}
+
+.portfolio-item.visible .portfolio-tech {
+    animation: fadeUp 1.2s ease-out forwards;
+    animation-delay: 400ms;
 }
 
 .portfolio-tag {
@@ -1061,7 +1086,7 @@ h3 {
     height: 100%;
     object-fit: contain;
     opacity: 0;
-    transform: translateX(-60px);
+    transform: translateX(-120px);
     transition: opacity 0.5s ease-out;
     max-height: 600px;
 }
