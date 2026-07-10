@@ -1035,6 +1035,12 @@ h3 {
     flex: 0 0 45%;
     padding-left: 2.8rem;
     padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.vula-tech {
+    margin-top: auto;
 }
 
 .slide-counter-inline {
