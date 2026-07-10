@@ -1001,7 +1001,7 @@ h3 {
     min-height: 100vh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    padding: 4rem;
+    padding: 4rem 3rem;
 }
 
 .portfolio-item:nth-child(4),
