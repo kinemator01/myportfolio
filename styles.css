@@ -340,12 +340,13 @@ h3 {
 .portfolio-image {
     flex: 0 0 45%;
     overflow: visible;
-    background: transparent;
-    padding: 0;
+    background: #1a1a1a;
+    padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1.5rem;
-    align-content: flex-start;
+    align-content: center;
+    justify-items: center;
 }
 
 .portfolio-image img {
