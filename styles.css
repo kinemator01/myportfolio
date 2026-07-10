@@ -844,6 +844,34 @@ h3 {
     flex: 0 0 55%;
 }
 
+.enhance-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 85, 170, 0.9);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    z-index: 5;
+    transition: all 0.2s ease;
+}
+
+.enhance-btn:hover {
+    background-color: #0055aa;
+    transform: scale(1.1);
+}
+
+.enhance-btn:active {
+    transform: scale(0.95);
+}
+
 .carousel-image {
     width: 100%;
     height: 100%;
@@ -854,6 +882,56 @@ h3 {
 
 .carousel-image.active {
     opacity: 1;
+}
+
+/* Enhanced image modal */
+.enhance-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 19, 25, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.enhance-modal.active {
+    display: flex;
+}
+
+.enhance-modal .enhance-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.enhance-modal .enhance-close button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.enhance-modal .enhance-close button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.enhance-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
 }
 
 .vula-carousel .portfolio-content {

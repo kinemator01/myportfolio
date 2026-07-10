@@ -144,6 +144,12 @@ class VulaCarousel {
             img.classList.add('active');
         }, 150);
 
+        // Update enhanced image
+        const enhancedImg = this.carouselItem.querySelector('.enhance-image');
+        if (enhancedImg) {
+            enhancedImg.src = slide.img;
+        }
+
         // Update content
         this.contentArea.querySelector('.portfolio-tag').textContent = slide.tag;
         this.contentArea.querySelector('h3').textContent = slide.title;
@@ -168,6 +174,39 @@ class VulaCarousel {
     attachEventListeners() {
         this.nextBtn.addEventListener('click', () => this.nextSlide());
         this.prevBtn.addEventListener('click', () => this.prevSlide());
+
+        // Enhance image button
+        const enhanceBtn = this.carouselItem.querySelector('.enhance-btn');
+        const enhanceModal = this.carouselItem.querySelector('.enhance-modal');
+        const closeBtn = this.carouselItem.querySelector('.enhance-close button');
+
+        if (enhanceBtn && enhanceModal) {
+            enhanceBtn.addEventListener('click', () => {
+                enhanceModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                enhanceModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Close modal on outside click
+            enhanceModal.addEventListener('click', (e) => {
+                if (e.target === enhanceModal) {
+                    enhanceModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
+                    enhanceModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
