@@ -106,7 +106,7 @@ class VulaCarousel {
         if (!this.carouselItem) return;
 
         this.imageContainer = this.carouselItem.querySelector('.carousel-wrapper');
-        this.contentArea = this.carouselItem.querySelector('.carousel-slide-content');
+        this.contentArea = this.carouselItem.querySelector('.carousel-content');
         this.dotsContainer = this.carouselItem.querySelector('.carousel-dots');
         this.prevBtn = this.carouselItem.querySelector('.carousel-prev');
         this.nextBtn = this.carouselItem.querySelector('.carousel-next');
@@ -115,14 +115,6 @@ class VulaCarousel {
     }
 
     init() {
-        // Store slide counter element
-        this.slideCounter = this.carouselItem.querySelector('.slide-num');
-        this.slideTotal = this.carouselItem.querySelector('.slide-total');
-
-        if (this.slideTotal) {
-            this.slideTotal.textContent = String(vulaSlides.length).padStart(2, '0');
-        }
-
         this.createDots();
         this.updateSlide(0);
         this.attachEventListeners();
@@ -160,11 +152,6 @@ class VulaCarousel {
             : slide.title;
         h3.innerHTML = titleText;
         this.contentArea.querySelector('p').textContent = slide.desc;
-
-        // Update slide counter
-        if (this.slideCounter) {
-            this.slideCounter.textContent = String(idx + 1).padStart(2, '0');
-        }
 
         // Update dots
         this.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
