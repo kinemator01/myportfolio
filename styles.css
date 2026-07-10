@@ -907,7 +907,7 @@ h3 {
     .portfolio-item:nth-child(3),
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
-        gap: 20px;
+        gap: 100px;
     }
 
     .portfolio-item:nth-child(even) {
@@ -1085,7 +1085,7 @@ h3 {
     .portfolio-item:nth-child(3),
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
-        gap: 20px;
+        gap: 100px;
     }
 
     .portfolio-image {
