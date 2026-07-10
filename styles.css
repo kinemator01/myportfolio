@@ -166,7 +166,7 @@ body {
     color: #ffffff;
     margin-top: 0;
     opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 1.2s ease-out forwards;
     animation-delay: 0ms;
 }
 
@@ -177,7 +177,7 @@ body {
     display: inline-flex;
     align-items: center;
     opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 1.2s ease-out forwards;
     animation-delay: 120ms;
 }
 
@@ -188,7 +188,7 @@ body {
     color: #ffffff;
     line-height: 1.7;
     opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 1.2s ease-out forwards;
     animation-delay: 240ms;
 }
 
@@ -204,7 +204,7 @@ body {
     margin-bottom: 2rem;
     line-height: 1.6;
     opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 1.2s ease-out forwards;
     animation-delay: 360ms;
 }
 
@@ -218,7 +218,7 @@ body {
     gap: 1rem;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 1.2s ease-out forwards;
     animation-delay: 480ms;
 }
 
@@ -259,7 +259,7 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
 .reveal.visible {
@@ -300,7 +300,7 @@ h2::after {
     background-color: #C9A227;
     border-radius: 2px;
     opacity: 0;
-    transition: opacity 0.6s ease-out 0.3s;
+    transition: opacity 1.2s ease-out 0.3s;
 }
 
 h2.reveal.visible::after {
@@ -387,11 +387,11 @@ h3 {
 }
 
 .portfolio-item.visible .portfolio-image {
-    animation: slideInFromLeft 0.6s ease-out forwards;
+    animation: slideInFromLeft 1.2s ease-out forwards;
 }
 
 .portfolio-item:nth-child(even).visible .portfolio-image {
-    animation: slideInFromRight 0.6s ease-out forwards;
+    animation: slideInFromRight 1.2s ease-out forwards;
 }
 
 .portfolio-image img {
@@ -1067,11 +1067,11 @@ h3 {
 }
 
 .portfolio-item.visible .carousel-image {
-    animation: slideInFromLeft 0.6s ease-out forwards;
+    animation: slideInFromLeft 1.2s ease-out forwards;
 }
 
 .portfolio-item:nth-child(even).visible .carousel-image {
-    animation: slideInFromRight 0.6s ease-out forwards;
+    animation: slideInFromRight 1.2s ease-out forwards;
 }
 
 .carousel-image.active {
