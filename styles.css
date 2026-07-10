@@ -703,8 +703,10 @@ h3 {
 .footer-divider {
     height: 1px;
     background-color: #333333;
-    max-width: 1200px;
-    margin: 2rem auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .footer-divider-top {
