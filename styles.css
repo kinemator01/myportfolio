@@ -904,10 +904,19 @@ h3 {
         box-sizing: border-box;
     }
 
-    .portfolio-item:nth-child(3),
+    .portfolio-item:nth-child(3) {
+        gap: 150px;
+    }
+
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
         gap: 100px;
+    }
+
+    .portfolio-item:nth-child(4) .portfolio-content,
+    .portfolio-item:nth-child(5) .portfolio-content {
+        padding: 1rem;
+        line-height: 1.8;
     }
 
     .portfolio-item:nth-child(even) {
@@ -1082,10 +1091,19 @@ h3 {
         margin-bottom: 1rem;
     }
 
-    .portfolio-item:nth-child(3),
+    .portfolio-item:nth-child(3) {
+        gap: 150px;
+    }
+
     .portfolio-item:nth-child(4),
     .portfolio-item:nth-child(5) {
         gap: 100px;
+    }
+
+    .portfolio-item:nth-child(4) .portfolio-content,
+    .portfolio-item:nth-child(5) .portfolio-content {
+        padding: 1rem;
+        line-height: 1.8;
     }
 
     .portfolio-image {
