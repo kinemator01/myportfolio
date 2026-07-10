@@ -318,6 +318,10 @@ h3 {
     min-height: 50vh;
 }
 
+.portfolio-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
 .portfolio-item:first-child {
     border-radius: 12px 12px 0 0;
 }
@@ -674,6 +678,10 @@ h3 {
         min-height: auto;
         border-radius: 12px;
         margin-bottom: 1.5rem;
+    }
+
+    .portfolio-item:nth-child(even) {
+        flex-direction: column;
     }
 
     .portfolio-item:first-child {
