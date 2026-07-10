@@ -896,28 +896,32 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 19, 25, 0.95);
+    background-color: rgba(15, 19, 25, 0.98);
     z-index: 9999;
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .enhance-modal.active {
     display: flex;
+    opacity: 1;
 }
 
 .enhance-modal .enhance-close {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+    z-index: 10000;
 }
 
 .enhance-modal .enhance-close button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
     cursor: pointer;
@@ -929,13 +933,20 @@ h3 {
 }
 
 .enhance-modal .enhance-close button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.enhance-modal .enhance-close button:active {
+    transform: scale(0.95);
 }
 
 .enhance-image {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
+    cursor: zoom-out;
+    pointer-events: auto;
 }
 
 .vula-carousel .portfolio-content {

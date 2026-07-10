@@ -181,29 +181,46 @@ class VulaCarousel {
         const closeBtn = this.carouselItem.querySelector('.enhance-close button');
 
         if (enhanceBtn && enhanceModal) {
-            enhanceBtn.addEventListener('click', () => {
-                enhanceModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-
-            closeBtn.addEventListener('click', () => {
+            const closeModal = () => {
                 enhanceModal.classList.remove('active');
                 document.body.style.overflow = '';
-            });
+            };
 
-            // Close modal on outside click
+            const openModal = () => {
+                enhanceModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            enhanceBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close modal only when clicking the dark overlay area (not the image)
             enhanceModal.addEventListener('click', (e) => {
+                // Only close if clicking directly on the modal background, not on the image
                 if (e.target === enhanceModal) {
-                    enhanceModal.classList.remove('active');
-                    document.body.style.overflow = '';
+                    closeModal();
                 }
             });
 
             // Close with Escape key
-            document.addEventListener('keydown', (e) => {
+            const escapeHandler = (e) => {
                 if (e.key === 'Escape' && enhanceModal.classList.contains('active')) {
-                    enhanceModal.classList.remove('active');
-                    document.body.style.overflow = '';
+                    closeModal();
+                }
+            };
+
+            document.addEventListener('keydown', escapeHandler);
+
+            // Prevent carousel interaction when modal is open
+            enhanceModal.addEventListener('mouseenter', () => {
+                this.clearAutoplay();
+            });
+
+            enhanceModal.addEventListener('mouseleave', () => {
+                if (!enhanceModal.classList.contains('active')) {
+                    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        this.startAutoplay();
+                    }
                 }
             });
         }
