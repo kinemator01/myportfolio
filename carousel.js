@@ -236,6 +236,16 @@ class VulaCarousel {
             };
 
             document.addEventListener('keydown', escapeHandler, true);
+
+            // Safety check: re-apply active class if it gets removed while modal should be open
+            const observer = new MutationObserver(() => {
+                if (isModalOpen && !enhanceModal.classList.contains('active')) {
+                    enhanceModal.classList.add('active');
+                    document.body.classList.add('enhance-modal-open');
+                }
+            });
+
+            observer.observe(enhanceModal, { attributes: true, attributeFilter: ['class'] });
         }
 
         // Keyboard navigation
