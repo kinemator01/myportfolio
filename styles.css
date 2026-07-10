@@ -835,14 +835,19 @@ h3 {
 }
 
 /* Vula Carousel */
+.vula-carousel {
+    min-height: 70vh;
+}
+
 .vula-carousel .carousel-wrapper {
     position: relative;
+    flex: 0 0 55%;
 }
 
 .carousel-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease-out;
 }
@@ -851,10 +856,15 @@ h3 {
     opacity: 1;
 }
 
+.vula-carousel .portfolio-content {
+    flex: 0 0 45%;
+}
+
 .carousel-slide-content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex: 1;
 }
 
 .carousel-controls-inline {
