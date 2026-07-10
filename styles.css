@@ -872,8 +872,10 @@ h3 {
     .portfolio-item {
         flex-direction: column;
         gap: 2rem;
-        padding: 3rem 0;
+        padding: 3rem 1.5rem;
         border-radius: 0;
+        width: auto;
+        margin-left: 0;
     }
 
     .portfolio-item:nth-child(even) {
@@ -922,6 +924,37 @@ h3 {
 
     .modal-section h3 {
         font-size: 1.1rem;
+    }
+
+    .vula-carousel {
+        width: auto;
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+    }
+
+    .vula-carousel .carousel-wrapper {
+        flex: 0 0 100%;
+    }
+
+    .vula-carousel .portfolio-content {
+        flex: 0 0 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .portfolio-item:nth-child(4),
+    .portfolio-item:nth-child(5) {
+        min-height: auto;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-social {
+        justify-content: center;
     }
 }
 
@@ -1008,6 +1041,27 @@ h3 {
 
     h2 {
         font-size: 2rem;
+    }
+
+    .portfolio-item {
+        padding: 2rem 1rem;
+    }
+
+    .vula-carousel {
+        padding: 2rem 1rem;
+    }
+
+    .vula-carousel .carousel-wrapper {
+        min-height: 300px;
+    }
+
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-divider {
+        width: calc(100vw - 2rem);
+        margin-left: calc(-50vw + 50% - 0.5rem);
     }
 
     .modal-content {
