@@ -166,7 +166,7 @@ body {
     color: #ffffff;
     margin-top: 0;
     opacity: 0;
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 0ms;
 }
 
@@ -177,7 +177,7 @@ body {
     display: inline-flex;
     align-items: center;
     opacity: 0;
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 120ms;
 }
 
@@ -188,7 +188,7 @@ body {
     color: #ffffff;
     line-height: 1.7;
     opacity: 0;
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 240ms;
 }
 
@@ -204,7 +204,7 @@ body {
     margin-bottom: 2rem;
     line-height: 1.6;
     opacity: 0;
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 360ms;
 }
 
@@ -218,7 +218,7 @@ body {
     gap: 1rem;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 480ms;
 }
 
@@ -259,7 +259,7 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 12s ease-out, transform 12s ease-out;
+  transition: opacity 2.4s ease-out, transform 2.4s ease-out;
 }
 
 .reveal.visible {
@@ -300,7 +300,7 @@ h2::after {
     background-color: #C9A227;
     border-radius: 2px;
     opacity: 0;
-    transition: opacity 12s ease-out 0.3s;
+    transition: opacity 2.4s ease-out 0.3s;
 }
 
 h2.reveal.visible::after {
@@ -387,11 +387,11 @@ h3 {
 }
 
 .portfolio-item.visible .portfolio-image {
-    animation: slideInFromLeft 12s ease-out forwards;
+    animation: slideInFromLeft 2.4s ease-out forwards;
 }
 
 .portfolio-item:nth-child(even).visible .portfolio-image {
-    animation: slideInFromRight 12s ease-out forwards;
+    animation: slideInFromRight 2.4s ease-out forwards;
 }
 
 .portfolio-image img {
@@ -417,26 +417,26 @@ h3 {
 }
 
 .portfolio-item.visible .portfolio-content {
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
 }
 
 .portfolio-item.visible .portfolio-tag {
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 100ms;
 }
 
 .portfolio-item.visible .portfolio-content h3 {
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 200ms;
 }
 
 .portfolio-item.visible .portfolio-content p {
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 300ms;
 }
 
 .portfolio-item.visible .portfolio-tech {
-    animation: fadeUp 12s ease-out forwards;
+    animation: fadeUp 2.4s ease-out forwards;
     animation-delay: 400ms;
 }
 
@@ -1223,11 +1223,11 @@ h3 {
 }
 
 .portfolio-item.visible .carousel-image {
-    animation: slideInFromLeft 12s ease-out forwards;
+    animation: slideInFromLeft 2.4s ease-out forwards;
 }
 
 .portfolio-item:nth-child(even).visible .carousel-image {
-    animation: slideInFromRight 12s ease-out forwards;
+    animation: slideInFromRight 2.4s ease-out forwards;
 }
 
 .carousel-image.active {
