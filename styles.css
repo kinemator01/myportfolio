@@ -999,11 +999,9 @@ h3 {
 /* Vula Carousel */
 .vula-carousel {
     min-height: 100vh;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    width: calc(100vw - 4rem);
-    margin-left: calc(50% - 50vw + 2rem);
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 4rem;
 }
 
 .portfolio-item:nth-child(4),
@@ -1035,11 +1033,7 @@ h3 {
 
 .vula-carousel .portfolio-content {
     flex: 0 0 45%;
-    padding: 2rem;
-}
-
-.vula-carousel {
-    gap: 2rem;
+    padding-right: 2rem;
 }
 
 .slide-counter-inline {
