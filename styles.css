@@ -302,7 +302,7 @@ h3 {
 .portfolio-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 3rem;
     padding: 0;
 }
 
@@ -313,22 +313,20 @@ h3 {
     background-color: #ffffff;
     color: #1a1a1a;
     border: 1px solid #e0e0e0;
-    border-top: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     min-height: 50vh;
+    overflow: hidden;
 }
 
 .portfolio-item:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-.portfolio-item:first-child {
-    border-radius: 12px 12px 0 0;
-}
-
-.portfolio-item:last-child {
-    border-radius: 0 0 12px 12px;
-    border-bottom: 1px solid #e0e0e0;
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .portfolio-item:hover {
