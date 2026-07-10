@@ -953,10 +953,20 @@ h3 {
     .carousel-controls-inline {
         flex-direction: column;
         gap: 1rem;
+        align-items: flex-start;
     }
 
     .carousel-nav {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        flex: 0 1 auto;
     }
 
     .portfolio-item:nth-child(4),
@@ -1113,8 +1123,18 @@ h3 {
 
     .carousel-prev,
     .carousel-next {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+        flex: 1;
+    }
+
+    .carousel-nav {
+        width: 100%;
+        gap: 0.25rem;
+    }
+
+    .carousel-controls-inline {
+        flex-wrap: wrap;
     }
 
     .footer {
