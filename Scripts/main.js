@@ -1,84 +1,20 @@
-// Smooth Scrolling for Navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Scroll Reveal with IntersectionObserver
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target); // Reveal once only
-        }
-    });
-}, { threshold: 0.15 });
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-// Active Nav Link Highlighting
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}, { threshold: 0.5 });
-
-sections.forEach(section => navObserver.observe(section));
-
-// Profile Carousel Functionality
-const profileCarousel = document.querySelector('.profile-carousel');
-const profileImages = profileCarousel.querySelectorAll('.profile-img');
-const profileAltTexts = Array.from(profileImages).map(img => img.alt);
-let currentProfileIndex = 0;
-
-function rotateProfileImages() {
-    profileImages.forEach((img, index) => {
-        img.classList.toggle('active', index === currentProfileIndex);
-        if (index === currentProfileIndex) {
-            profileCarousel.setAttribute('aria-label', profileAltTexts[index]);
-        }
-    });
-    currentProfileIndex = (currentProfileIndex + 1) % profileImages.length;
-}
-
-// Start profile image rotation
-rotateProfileImages();
-setInterval(rotateProfileImages, 3000); // Rotate every 3 seconds
+// Import modules
+// Note: In production, these would use ES6 modules (import/export)
+// For now, they're loaded in order via separate script tags
 
 // Journey Animation for Read More
 const readMoreBtn = document.querySelector('.read-more');
 const journeyOverlay = document.querySelector('.journey-overlay');
 const journeyText = document.querySelector('.journey-text');
 const closeJourneyBtn = document.querySelector('.close-journey');
-const journeyContent = "I started from nothing, staring at code that felt like a foreign language. For months, I stumbled, wrestling with errors and self-doubt. But I refused to quit. Coding every day became my mantra, turning confusion into clarity. As a 2nd-year Computer Engineering student at CPUT in Cape Town, I’ve built projects like Java Notepad and BrainRush, fueled by Java and React. Now, I’m charging toward app development, weaving in machine learning to create tech that solves real problems and shapes the future.";
+const journeyContent = "I started from nothing, staring at code that felt like a foreign language. For months, I stumbled, wrestling with errors and self-doubt. But I refused to quit. Coding every day became my mantra, turning confusion into clarity. As a 2nd-year Computer Engineering student at CPUT in Cape Town, I've built projects like Java Notepad and BrainRush, fueled by Java and React. Now, I'm charging toward app development, weaving in machine learning to create tech that solves real problems and shapes the future.";
 
 function scrambleText() {
     journeyText.innerHTML = '';
     const letters = journeyContent.split('');
     letters.forEach((letter, index) => {
         const span = document.createElement('span');
-        span.textContent = letter === ' ' ? '\u00A0' : letter; // Preserve spaces
+        span.textContent = letter === ' ' ? ' ' : letter;
         span.style.left = `${Math.random() * 80 + 10}vw`;
         span.style.top = `${Math.random() * 80 + 10}vh`;
         span.style.transform = `rotate(${Math.random() * 360}deg)`;
@@ -104,7 +40,7 @@ if (readMoreBtn && journeyOverlay && journeyText && closeJourneyBtn) {
         journeyOverlay.classList.add('active');
         journeyOverlay.setAttribute('aria-hidden', 'false');
         scrambleText();
-        setTimeout(organizeText, 1000); // Organize after 1s
+        setTimeout(organizeText, 1000);
     });
 
     closeJourneyBtn.addEventListener('click', () => {
@@ -114,7 +50,6 @@ if (readMoreBtn && journeyOverlay && journeyText && closeJourneyBtn) {
         journeyText.innerHTML = '';
     });
 
-    // Keyboard accessibility for closing overlay
     closeJourneyBtn.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -126,9 +61,7 @@ if (readMoreBtn && journeyOverlay && journeyText && closeJourneyBtn) {
     });
 }
 
-// ============================================
-// Project Cards: Image Rotation (Crossfade)
-// ============================================
+// Project Cards: Image Rotation
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach(card => {
@@ -152,9 +85,7 @@ projectCards.forEach(card => {
     setInterval(rotateImages, 4000);
 });
 
-// ============================================
 // WST Case Study Modal
-// ============================================
 const caseStudyBtn = document.querySelector('[data-modal="wst-modal"]');
 const modal = document.createElement('div');
 modal.id = 'wst-modal';
@@ -212,20 +143,20 @@ if (caseStudyBtn) {
 modalCloseBtn.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    caseStudyBtn.focus();
+    if (caseStudyBtn) caseStudyBtn.focus();
 });
 
 modalOverlay.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    caseStudyBtn.focus();
+    if (caseStudyBtn) caseStudyBtn.focus();
 });
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        caseStudyBtn.focus();
+        if (caseStudyBtn) caseStudyBtn.focus();
     }
 });
 
