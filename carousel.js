@@ -149,6 +149,12 @@ class VulaCarousel {
         this.contentArea.querySelector('h3').textContent = slide.title;
         this.contentArea.querySelector('p').textContent = slide.desc;
 
+        // Update slide counter
+        const slideNum = this.contentArea.querySelector('.slide-num');
+        if (slideNum) {
+            slideNum.textContent = String(idx + 1).padStart(2, '0');
+        }
+
         // Update dots
         this.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
             dot.classList.toggle('active', i === idx);

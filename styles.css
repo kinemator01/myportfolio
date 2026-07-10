@@ -861,6 +861,15 @@ h3 {
     flex: 0 0 45%;
 }
 
+.slide-counter-inline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: rgba(0, 85, 170, 0.8);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
 .carousel-slide-content {
     display: flex;
     flex-direction: column;
