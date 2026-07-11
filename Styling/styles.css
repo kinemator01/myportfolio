@@ -1184,7 +1184,6 @@ h3 {
 
     .portfolio-item:nth-child(4) .portfolio-content,
     .portfolio-item:nth-child(5) .portfolio-content {
-        padding: 1rem;
         line-height: 1.8;
     }
 
@@ -1537,7 +1536,6 @@ h3 {
 
     .portfolio-item:nth-child(4) .portfolio-content,
     .portfolio-item:nth-child(5) .portfolio-content {
-        padding: 1rem;
         line-height: 1.8;
     }
 
@@ -2239,10 +2237,6 @@ h3 {
     .timeline-content,
     .timeline-card {
         margin-left: 50px;
-    }
-
-    .timeline-card {
-        padding: 1rem;
     }
 
     .timeline-title {
