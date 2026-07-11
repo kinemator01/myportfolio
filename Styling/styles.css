@@ -453,14 +453,14 @@ body {
     transform: translateY(-2px);
 }
 
-/* Scroll Reveal Utility */
+/* Scroll Reveal Utility - handled by scrollAnimation.js for bidirectional control */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 2.4s ease-out, transform 2.4s ease-out;
+  transform: translateY(20px);
 }
 
 .reveal.visible {
+  /* Opacity and transform controlled by scroll animation */
   opacity: 1;
   transform: translateY(0);
 }
@@ -468,6 +468,20 @@ body {
 /* Sections */
 .section {
     padding: 5rem 0;
+}
+
+/* Scroll Animation Styles */
+.reveal,
+.portfolio-item,
+.timeline-entry,
+h2,
+h3,
+p:not(.hero-text):not(.hero-proof):not(.subtitle),
+.portfolio-tag,
+.tech-chip,
+.portfolio-btn {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: opacity, transform;
 }
 
 .container {
