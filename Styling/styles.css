@@ -1492,6 +1492,19 @@ h3 {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-contact {
+        flex: none;
+    }
+
+    .footer-center {
+        order: 2;
+    }
+
+    .footer-social {
+        flex: none;
     }
 }
 
@@ -2213,6 +2226,19 @@ h3 {
         justify-content: center;
         align-items: center;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-contact {
+        flex: none;
+    }
+
+    .footer-center {
+        order: 2;
+    }
+
+    .footer-social {
+        flex: none;
     }
 }
 
