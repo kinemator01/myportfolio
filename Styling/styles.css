@@ -285,10 +285,11 @@ body {
 
 .hero-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 4rem;
     max-width: 1000px;
+    margin-top: 80px;
 }
 
 .profile-carousel {
@@ -1105,6 +1106,8 @@ h3 {
         flex-direction: column;
         gap: 2rem;
         padding-top: 0.8rem;
+        margin-top: 60px;
+        align-items: flex-start;
     }
 
     .hero-text-content {
@@ -1406,6 +1409,8 @@ h3 {
         flex-direction: column;
         gap: 2rem;
         max-width: 100%;
+        margin-top: 60px;
+        align-items: flex-start;
     }
 
     .hero-text-content {
