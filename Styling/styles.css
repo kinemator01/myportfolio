@@ -1010,7 +1010,7 @@ h3 {
     .profile-carousel {
         width: 200px;
         height: 200px;
-        margin: 0 auto;
+        margin: 1rem auto 0;
     }
 
     .profile-video,
