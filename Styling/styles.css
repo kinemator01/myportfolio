@@ -1618,64 +1618,51 @@ h3 {
 }
 
 
-/* Hero Social Icon Links */
+/* Hero Social Icon Links - Squircle Design */
+.hero-social-icon-wrapper {
+    position: relative;
+}
+
 .hero-social-icon {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 56px;
+    height: 56px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     flex-shrink: 0;
+    clip-path: url(#squircleClip);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .hero-social-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
 }
 
-/* GitHub icon styling */
-.hero-social-icon .github-path {
-    fill: rgba(255, 255, 255, 0.2);
-    transition: fill 0.3s ease;
+.hero-social-github {
+    background: linear-gradient(135deg, #4a5568 0%, #1a202c 100%);
+    color: #ffffff;
 }
 
-.hero-social-icon .github-logo {
-    fill: rgba(255, 255, 255, 0.6);
-    transition: fill 0.3s ease;
+.hero-social-linkedin {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #ffffff;
 }
 
-.hero-social-icon:hover .github-path {
-    fill: rgba(201, 162, 39, 0.2);
+.hero-social-instagram {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    color: #ffffff;
 }
 
-.hero-social-icon:hover .github-logo {
-    fill: #C9A227;
-}
-
-/* LinkedIn icon styling */
-.hero-social-icon .linkedin-path {
-    fill: rgba(255, 255, 255, 0.2);
-    transition: fill 0.3s ease;
-}
-
-.hero-social-icon .linkedin-logo {
-    fill: rgba(255, 255, 255, 0.6);
-    transition: fill 0.3s ease;
-}
-
-.hero-social-icon:hover .linkedin-path {
-    fill: rgba(201, 162, 39, 0.2);
-}
-
-.hero-social-icon:hover .linkedin-logo {
-    fill: #C9A227;
-}
-
-/* Instagram icon styling */
 .hero-social-icon:hover {
-    border-color: #C9A227;
-    transform: translateY(-4px);
+    transform: scale(1.1) translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .hero-social-icon:focus-visible {
