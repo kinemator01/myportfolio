@@ -68,43 +68,66 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 // Active Nav Link Highlighting - find section closest to viewport center
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+const initNavHighlighting = () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-const updateActiveNav = () => {
-    const viewportCenter = window.innerHeight / 2;
-    let closestSection = null;
-    let closestDistance = Infinity;
+    if (sections.length === 0 || navLinks.length === 0) return;
 
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const sectionCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(viewportCenter - sectionCenter);
+    const updateActiveNav = () => {
+        const viewportCenter = window.innerHeight / 2;
+        let closestSection = null;
+        let closestDistance = Infinity;
 
-        // Section must be at least partially visible
-        if (rect.bottom > 0 && rect.top < window.innerHeight) {
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestSection = section;
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const sectionCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(viewportCenter - sectionCenter);
+
+            // Section must be at least partially visible
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestSection = section;
+                }
+            }
+        });
+
+        // Highlight the closest section's nav link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        if (closestSection) {
+            const id = closestSection.getAttribute('id');
+            const activeLink = document.querySelector(`a[href="#${id}"].nav-link`);
+            if (activeLink) {
+                activeLink.classList.add('active');
             }
         }
+    };
+
+    // Update on scroll with slight debounce
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveNav, 50);
     });
 
-    // Highlight the closest section's nav link
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-
-    if (closestSection) {
-        const id = closestSection.getAttribute('id');
-        const activeLink = document.querySelector(`a[href="#${id}"].nav-link`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
+    // Run on page load to set initial state
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateActiveNav);
+    } else {
+        updateActiveNav();
     }
+
+    // Also run after a slight delay on load to catch dynamic content
+    setTimeout(updateActiveNav, 100);
 };
 
-// Update on scroll and load
-window.addEventListener('scroll', updateActiveNav);
-document.addEventListener('DOMContentLoaded', updateActiveNav);
-window.addEventListener('load', updateActiveNav);
+// Initialize nav highlighting when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavHighlighting);
+} else {
+    initNavHighlighting();
+}
