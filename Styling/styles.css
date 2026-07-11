@@ -1105,13 +1105,14 @@ h3 {
     .hero-content {
         flex-direction: column;
         gap: 2rem;
-        padding-top: 0.8rem;
+        padding-top: 0;
         margin-top: 60px;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .hero-text-content {
         text-align: center;
+        width: 100%;
     }
 
     .hero h1 {
@@ -1410,11 +1411,12 @@ h3 {
         gap: 2rem;
         max-width: 100%;
         margin-top: 60px;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .hero-text-content {
         text-align: center;
+        width: 100%;
     }
 
     .profile-carousel {
