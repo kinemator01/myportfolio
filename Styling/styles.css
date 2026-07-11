@@ -1094,6 +1094,10 @@ h3 {
         color: #80aaff;
     }
 
+    .hero {
+        padding-top: 80px;
+    }
+
     section[id] {
         scroll-margin-top: 70px;
     }
