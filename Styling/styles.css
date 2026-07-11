@@ -2205,6 +2205,11 @@ h3 {
     .timeline-description {
         font-size: 0.95rem;
     }
+
+    .footer-top {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 /* Responsive: Small mobile (≤480px) */
