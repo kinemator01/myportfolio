@@ -1488,7 +1488,9 @@ h3 {
     }
 
     .footer-top {
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
     }
 }
@@ -2207,7 +2209,9 @@ h3 {
     }
 
     .footer-top {
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
     }
 }
