@@ -77,12 +77,14 @@ const navObserver = new IntersectionObserver((entries) => {
             const id = entry.target.getAttribute('id');
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
             });
+            // Find and highlight the matching link
+            const activeLink = document.querySelector(`a[href="#${id}"].nav-link`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: [0, 0.1, 0.5] });
 
 sections.forEach(section => navObserver.observe(section));
