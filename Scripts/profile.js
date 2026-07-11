@@ -6,6 +6,7 @@ if (profileCarousel) {
     const images = profileCarousel.querySelectorAll('.profile-img');
     const allItems = [video, ...images];
     let currentIndex = 0;
+    let carouselInterval;
 
     function showItem(index) {
         allItems.forEach((item, i) => {
@@ -13,26 +14,24 @@ if (profileCarousel) {
         });
 
         if (allItems[index] === video) {
+            video.currentTime = 0;
             video.play();
         }
     }
 
-    function nextItem() {
+    function rotateCarousel() {
         const currentItem = allItems[currentIndex];
-        let delay = 3000;
-
-        if (currentItem === video) {
-            delay = 5000;
-            video.play();
-        }
+        const isVideo = currentItem === video;
+        const duration = isVideo ? 5000 : 3000;
 
         currentIndex = (currentIndex + 1) % allItems.length;
+
         setTimeout(() => {
             showItem(currentIndex);
-            nextItem();
-        }, delay);
+            rotateCarousel();
+        }, duration);
     }
 
     showItem(0);
-    nextItem();
+    rotateCarousel();
 }
