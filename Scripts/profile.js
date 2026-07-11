@@ -1,21 +1,38 @@
-// Profile Carousel Functionality
+// Profile Carousel with Video
 const profileCarousel = document.querySelector('.profile-carousel');
 
 if (profileCarousel) {
-    const profileImages = profileCarousel.querySelectorAll('.profile-img');
-    const profileAltTexts = Array.from(profileImages).map(img => img.alt);
-    let currentProfileIndex = 0;
+    const video = profileCarousel.querySelector('.profile-video');
+    const images = profileCarousel.querySelectorAll('.profile-img');
+    const allItems = [video, ...images];
+    let currentIndex = 0;
 
-    function rotateProfileImages() {
-        profileImages.forEach((img, index) => {
-            img.classList.toggle('active', index === currentProfileIndex);
-            if (index === currentProfileIndex) {
-                profileCarousel.setAttribute('aria-label', profileAltTexts[index]);
-            }
+    function showItem(index) {
+        allItems.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
         });
-        currentProfileIndex = (currentProfileIndex + 1) % profileImages.length;
+
+        if (allItems[index] === video) {
+            video.play();
+        }
     }
 
-    rotateProfileImages();
-    setInterval(rotateProfileImages, 3000);
+    function nextItem() {
+        const currentItem = allItems[currentIndex];
+        let delay = 3000;
+
+        if (currentItem === video) {
+            delay = 5000;
+            video.play();
+        }
+
+        currentIndex = (currentIndex + 1) % allItems.length;
+        setTimeout(() => {
+            showItem(currentIndex);
+            nextItem();
+        }, delay);
+    }
+
+    showItem(0);
+    nextItem();
 }
