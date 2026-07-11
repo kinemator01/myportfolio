@@ -176,21 +176,27 @@ modal.addEventListener('keydown', (e) => {
     }
 });
 
-// Journey Timeline Animation
-const timelineRail = document.querySelector('.timeline-rail');
+// Journey Timeline Animation - handle multiple tracks independently
+const timelineRails = document.querySelectorAll('.journey .timeline-rail');
 const timelineSection = document.querySelector('#journey');
 
-if (timelineRail && timelineSection) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !timelineRail.classList.contains('animated')) {
-                timelineRail.classList.add('animated');
-                timelineRail.style.animation = 'timelineDrawDown 1.2s ease-out forwards';
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
+if (timelineRails.length > 0 && timelineSection) {
+    timelineRails.forEach(rail => {
+        const timelineContainer = rail.closest('.timeline');
 
-    observer.observe(timelineSection);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !rail.classList.contains('animated')) {
+                    rail.classList.add('animated');
+                    rail.style.animation = 'timelineDrawDown 1.2s ease-out forwards';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        if (timelineContainer) {
+            observer.observe(timelineContainer);
+        }
+    });
 }

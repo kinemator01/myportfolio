@@ -2032,6 +2032,22 @@ h3 {
     position: relative;
 }
 
+.journey-track-heading {
+    font-size: 1.3rem;
+    color: #a9c2dd;
+    font-weight: 500;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.journey-track-heading.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .journey h2 {
     color: #ffffff;
 }
