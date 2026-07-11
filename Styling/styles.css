@@ -987,6 +987,7 @@ h3 {
     .hero-content {
         flex-direction: column;
         gap: 2rem;
+        padding-top: 5px;
     }
 
     .hero-text-content {
