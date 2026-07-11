@@ -20,10 +20,115 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
     line-height: 1.6;
     color: #ffffff;
-    background-color: #000000;
+    background-color: #050505;
     scrollbar-gutter: stable;
     overflow-x: hidden;
     width: 100%;
+}
+
+/* Midnight Sky Background (From Uiverse.io by kiranmayee-abbireddy) */
+.uiverse-midnight-sky {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #050505;
+    pointer-events: none;
+}
+
+.uiverse-midnight-sky .sky-canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background: #050505;
+}
+
+.uiverse-midnight-sky .stars {
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.uiverse-midnight-sky .stars-1 {
+    background-image: radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 30% 20%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 50%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 10%, #fff, transparent);
+    background-size: 200px 200px;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.uiverse-midnight-sky .stars-2 {
+    background-image: radial-gradient(1.5px 1.5px at 20% 40%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 60% 85%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 85% 65%, #fff, transparent);
+    background-size: 300px 300px;
+    animation: twinkle 5s ease-in-out infinite 1s;
+}
+
+.uiverse-midnight-sky .stars-3 {
+    background-image: radial-gradient(2px 2px at 40% 70%, #fff, transparent),
+        radial-gradient(2px 2px at 10% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 80% 40%, #fff, transparent);
+    background-size: 400px 400px;
+    animation: twinkle 7s ease-in-out infinite 2s;
+}
+
+.uiverse-midnight-sky .meteor {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.uiverse-midnight-sky .meteor::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+.uiverse-midnight-sky .m1 { top: 10%; left: 110%; animation: shoot 8s linear infinite; }
+.uiverse-midnight-sky .m2 { top: 30%; left: 110%; animation: shoot 12s linear infinite 4s; }
+.uiverse-midnight-sky .m3 { top: 50%; left: 110%; animation: shoot 10s linear infinite 2s; }
+
+.uiverse-midnight-sky .moon {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 12px 12px 0 0 #fdfbd3;
+    filter: drop-shadow(0 0 15px rgba(253, 251, 211, 0.4));
+    z-index: 10;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.2; }
+}
+
+@keyframes shoot {
+    0% { transform: translateX(0) translateY(0) rotate(-35deg); opacity: 0; }
+    5% { opacity: 1; }
+    15% { transform: translateX(-1500px) translateY(1000px) rotate(-35deg); opacity: 0; }
+    100% { transform: translateX(-1500px) translateY(1000px) rotate(-35deg); opacity: 0; }
 }
 
 /* Navigation */
@@ -173,9 +278,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/random/1920x1080?programming');
-    background-size: cover;
-    background-position: center;
+    background: transparent;
     text-align: center;
     padding: 2rem;
 }
@@ -411,7 +514,7 @@ h3 {
 
 /* Projects Section */
 .projects {
-    background-color: #000000;
+    background-color: transparent;
     color: #ffffff;
 }
 
@@ -506,9 +609,18 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 0;
+    padding: 2rem;
     gap: 1.5rem;
     opacity: 0;
+    background: rgba(15, 42, 67, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 8px;
+}
+
+@supports not (backdrop-filter: blur(6px)) {
+    .portfolio-content {
+        background: rgba(15, 42, 67, 0.95);
+    }
 }
 
 .portfolio-item.visible .portfolio-content {
@@ -786,9 +898,16 @@ h3 {
 
 /* Footer */
 .footer {
-    background-color: #000000;
+    background: rgba(15, 42, 67, 0.75);
+    backdrop-filter: blur(6px);
     color: #ffffff;
     padding: 4rem 2rem;
+}
+
+@supports not (backdrop-filter: blur(6px)) {
+    .footer {
+        background: rgba(15, 42, 67, 0.95);
+    }
 }
 
 .footer-top {
@@ -1892,7 +2011,7 @@ h3 {
 
 /* Journey Timeline Section */
 .journey {
-    background-color: #000000;
+    background-color: transparent;
     color: #ffffff;
     position: relative;
 }
@@ -2000,10 +2119,22 @@ h3 {
 .timeline-card {
     margin-left: calc(30% + 2rem);
     flex: 1;
+    background: rgba(15, 42, 67, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+@supports not (backdrop-filter: blur(6px)) {
+    .timeline-content,
+    .timeline-card {
+        background: rgba(15, 42, 67, 0.95);
+    }
 }
 
 .timeline-entry--highlight .timeline-card {
-    background-color: rgba(31, 42, 63, 0.6);
+    background-color: rgba(15, 42, 67, 0.75);
+    backdrop-filter: blur(6px);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -2166,6 +2297,20 @@ h3 {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    /* Midnight sky: static stars, no meteors */
+    .uiverse-midnight-sky .stars {
+        opacity: 0.5;
+    }
+
+    .uiverse-midnight-sky .meteor {
+        display: none;
+    }
+
+    /* Keep moon visible */
+    .uiverse-midnight-sky .moon {
+        opacity: 1;
     }
 }
 
