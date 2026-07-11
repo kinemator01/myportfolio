@@ -1,3 +1,34 @@
+// Mobile Navigation Toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navList = document.querySelector('.nav-list');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
+    });
+
+    // Close menu when a nav link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navList.classList.remove('active');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navList.classList.remove('active');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
 // Smooth Scrolling for Navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

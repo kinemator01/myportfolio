@@ -81,6 +81,42 @@ body {
     transform: scaleX(1);
 }
 
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 0.35rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.nav-toggle-line {
+    width: 24px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Hero Entrance Animation */
 @keyframes fadeUp {
   from {
@@ -871,6 +907,14 @@ h3 {
 
     html {
         overflow-x: hidden;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 0.75rem 1rem;
     }
 
     .portfolio-image,
