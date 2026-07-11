@@ -1,54 +1,53 @@
 // Bidirectional Scroll Animation System
-// Animates elements as they enter viewport, reverses on scroll up
+// Text fades in as it enters viewport, fades out as it exits
+// Works in both scroll directions - only visible while in viewport
 
-let lastScrollY = 0;
-let scrollDirection = 'down';
-
-// Detect scroll direction
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
-    lastScrollY = currentScrollY;
-});
-
-// Animate elements on scroll
 const animateOnScroll = () => {
     const elements = document.querySelectorAll(
         '.reveal, .portfolio-item, .timeline-entry, h2, h3, p:not(.hero-text):not(.hero-proof):not(.subtitle), .portfolio-tag, .tech-chip, .portfolio-btn'
     );
 
+    const windowHeight = window.innerHeight;
+
     elements.forEach(element => {
         const elementRect = element.getBoundingClientRect();
         const elementTop = elementRect.top;
         const elementBottom = elementRect.bottom;
-        const windowHeight = window.innerHeight;
+        const elementHeight = elementRect.height;
 
-        // Calculate how much of the element is visible (0 to 1)
-        const visibilityRatio = Math.max(
-            0,
-            Math.min(
-                1,
-                (windowHeight - elementTop) / (windowHeight + elementRect.height)
-            )
-        );
+        // Calculate progress as element moves through viewport
+        // 0 = element is below viewport (not yet visible)
+        // 1 = element fully enters viewport from below
+        // 1 = element stays fully visible while in middle of viewport
+        // 0 = element exits viewport going up
+        // 0 = element is above viewport (fully scrolled past)
 
-        // Element is in viewport
-        if (visibilityRatio > 0 && visibilityRatio < 1) {
-            // Animate based on scroll direction and position
-            const translateY = (1 - visibilityRatio) * 20; // 0-20px translate
-            const opacity = visibilityRatio;
+        let animationProgress = 0;
 
-            element.style.opacity = opacity;
-            element.style.transform = `translateY(${translateY}px)`;
-        } else if (visibilityRatio >= 1) {
-            // Fully visible - no transform
-            element.style.opacity = 1;
-            element.style.transform = 'translateY(0)';
-        } else if (visibilityRatio <= 0) {
-            // Not yet visible
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
+        // Element entering from below (scrolling down)
+        if (elementTop <= windowHeight && elementBottom >= 0) {
+            // Element is touching or inside viewport
+            if (elementTop > 0) {
+                // Element entering from bottom
+                animationProgress = 1 - (elementTop / windowHeight);
+            } else if (elementTop <= 0 && elementBottom >= windowHeight) {
+                // Element fully covers viewport (fully visible)
+                animationProgress = 1;
+            } else if (elementBottom >= 0) {
+                // Element exiting from top
+                animationProgress = elementBottom / windowHeight;
+            }
         }
+
+        // Clamp to 0-1
+        animationProgress = Math.max(0, Math.min(1, animationProgress));
+
+        // Apply animation: fade in/out, slide up from below or down above
+        const opacity = animationProgress;
+        const translateY = (1 - animationProgress) * 20; // 0-20px slide
+
+        element.style.opacity = opacity;
+        element.style.transform = `translateY(${translateY}px)`;
     });
 };
 
