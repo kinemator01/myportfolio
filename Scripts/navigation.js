@@ -1,10 +1,13 @@
 // Mobile Navigation Toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navList = document.querySelector('.nav-list');
-const navLinks = document.querySelectorAll('.nav-link');
+function initMobileNav() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
+    if (!navToggle || !navList) return;
+
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         navList.classList.toggle('active');
         navToggle.classList.toggle('active');
         navToggle.setAttribute('aria-expanded', navList.classList.contains('active'));
@@ -19,7 +22,7 @@ if (navToggle) {
         });
     });
 
-    // Close menu when clicking outside
+    // Close menu when clicking outside navbar
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.navbar')) {
             navList.classList.remove('active');
@@ -27,6 +30,13 @@ if (navToggle) {
             navToggle.setAttribute('aria-expanded', 'false');
         }
     });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileNav);
+} else {
+    initMobileNav();
 }
 
 // Smooth Scrolling for Navigation
