@@ -67,33 +67,44 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Active Nav Link Highlighting - highlight section most in view
+// Active Nav Link Highlighting - find section closest to viewport center
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
-const navObserver = new IntersectionObserver((entries) => {
-    // Find the section with the highest intersection ratio (most visible)
-    let mostVisibleEntry = null;
-    let highestRatio = 0;
+const updateActiveNav = () => {
+    const viewportCenter = window.innerHeight / 2;
+    let closestSection = null;
+    let closestDistance = Infinity;
 
-    entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > highestRatio) {
-            highestRatio = entry.intersectionRatio;
-            mostVisibleEntry = entry;
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - sectionCenter);
+
+        // Section must be at least partially visible
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestSection = section;
+            }
         }
     });
 
-    // Highlight the most visible section's nav link
-    if (mostVisibleEntry) {
-        const id = mostVisibleEntry.target.getAttribute('id');
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
+    // Highlight the closest section's nav link
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    if (closestSection) {
+        const id = closestSection.getAttribute('id');
         const activeLink = document.querySelector(`a[href="#${id}"].nav-link`);
         if (activeLink) {
             activeLink.classList.add('active');
         }
     }
-}, { threshold: [0, 0.1, 0.25, 0.5, 0.75] });
+};
 
-sections.forEach(section => navObserver.observe(section));
+// Update on scroll and load
+window.addEventListener('scroll', updateActiveNav);
+document.addEventListener('DOMContentLoaded', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
