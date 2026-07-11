@@ -945,6 +945,7 @@ h3 {
         left: 0;
         right: 0;
         width: 100%;
+        height: auto;
         background-color: #000000;
         box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         display: none;
