@@ -1650,20 +1650,57 @@ h3 {
     border-radius: 50%;
     background-color: transparent;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
 
 .hero-social-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
 }
 
+/* GitHub icon styling */
+.hero-social-icon .github-path {
+    fill: rgba(255, 255, 255, 0.2);
+    transition: fill 0.3s ease;
+}
+
+.hero-social-icon .github-logo {
+    fill: rgba(255, 255, 255, 0.6);
+    transition: fill 0.3s ease;
+}
+
+.hero-social-icon:hover .github-path {
+    fill: rgba(201, 162, 39, 0.2);
+}
+
+.hero-social-icon:hover .github-logo {
+    fill: #C9A227;
+}
+
+/* LinkedIn icon styling */
+.hero-social-icon .linkedin-path {
+    fill: rgba(255, 255, 255, 0.2);
+    transition: fill 0.3s ease;
+}
+
+.hero-social-icon .linkedin-logo {
+    fill: rgba(255, 255, 255, 0.6);
+    transition: fill 0.3s ease;
+}
+
+.hero-social-icon:hover .linkedin-path {
+    fill: rgba(201, 162, 39, 0.2);
+}
+
+.hero-social-icon:hover .linkedin-logo {
+    fill: #C9A227;
+}
+
+/* Instagram icon styling */
 .hero-social-icon:hover {
     border-color: #C9A227;
-    color: #C9A227;
     transform: translateY(-4px);
 }
 
