@@ -976,6 +976,14 @@ h3 {
         color: #80aaff;
     }
 
+    section[id] {
+        scroll-margin-top: 80px;
+    }
+
+    section[id] h2 {
+        scroll-margin-top: 80px;
+    }
+
     .hero-content {
         flex-direction: column;
         gap: 2rem;
