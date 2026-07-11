@@ -175,3 +175,22 @@ modal.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// Journey Timeline Animation
+const timelineRail = document.querySelector('.timeline-rail');
+const timelineSection = document.querySelector('#journey');
+
+if (timelineRail && timelineSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !timelineRail.classList.contains('animated')) {
+                timelineRail.classList.add('animated');
+                timelineRail.style.animation = 'timelineDrawDown 1.2s ease-out forwards';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    observer.observe(timelineSection);
+}
