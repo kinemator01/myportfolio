@@ -44,10 +44,27 @@ const animateOnScroll = () => {
 
         // Apply animation: fade in/out, slide up from below or down above
         const opacity = animationProgress;
-        const translateY = (1 - animationProgress) * 20; // 0-20px slide
+        const translateY = (1 - animationProgress) * 20; // 0-20px vertical slide
+
+        // For images and portfolio items: add horizontal slide from sides
+        let translateX = 0;
+        if (element.tagName === 'IMG' || element.classList.contains('portfolio-image') || element.classList.contains('carousel-image')) {
+            // Determine slide direction based on element index (alternating left/right)
+            const allImages = document.querySelectorAll('img, .portfolio-image, .carousel-image');
+            let elementIndex = 0;
+            for (let i = 0; i < allImages.length; i++) {
+                if (allImages[i] === element) {
+                    elementIndex = i;
+                    break;
+                }
+            }
+            // Alternate direction: even = from right, odd = from left
+            const slideDirection = elementIndex % 2 === 0 ? 1 : -1; // 1 = from right, -1 = from left
+            translateX = (1 - animationProgress) * 40 * slideDirection; // 0-40px horizontal slide
+        }
 
         element.style.opacity = opacity;
-        element.style.transform = `translateY(${translateY}px)`;
+        element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
     });
 };
 
