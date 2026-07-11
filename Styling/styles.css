@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/* Custom Properties */
+:root {
+    --video-focus: 35% center;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -172,9 +177,9 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: var(--video-focus);
     border: 4px solid #80aaff;
-    background-color: #000000;
     opacity: 0;
     transition: opacity 0.5s ease;
     visibility: hidden;
