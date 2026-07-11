@@ -889,16 +889,9 @@ h3 {
 
 /* Footer */
 .footer {
-    background: rgba(15, 42, 67, 0.75);
-    backdrop-filter: blur(6px);
+    background-color: transparent;
     color: #ffffff;
     padding: 4rem 2rem;
-}
-
-@supports not (backdrop-filter: blur(6px)) {
-    .footer {
-        background: rgba(15, 42, 67, 0.95);
-    }
 }
 
 .footer-top {
@@ -2110,24 +2103,9 @@ h3 {
 .timeline-card {
     margin-left: calc(30% + 2rem);
     flex: 1;
-    background: rgba(15, 42, 67, 0.75);
-    backdrop-filter: blur(6px);
-    border-radius: 8px;
-    padding: 1.5rem;
-}
-
-@supports not (backdrop-filter: blur(6px)) {
-    .timeline-content,
-    .timeline-card {
-        background: rgba(15, 42, 67, 0.95);
-    }
 }
 
 .timeline-entry--highlight .timeline-card {
-    background-color: rgba(15, 42, 67, 0.75);
-    backdrop-filter: blur(6px);
-    border-radius: 8px;
-    padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
