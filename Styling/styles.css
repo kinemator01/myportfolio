@@ -907,13 +907,6 @@ h3 {
         flex-wrap: nowrap;
     }
 
-    .hero-social-icon {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        min-height: 40px;
-    }
-
     .container {
         padding: 0 1.5rem;
     }
@@ -1301,18 +1294,6 @@ h3 {
         gap: 0.75rem;
     }
 
-    .hero-social-icon {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        min-height: 40px;
-    }
-
-    .hero-social-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-
     h2 {
         font-size: 2rem;
     }
@@ -1642,21 +1623,14 @@ h3 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
-    border: 1.5px solid rgba(201, 162, 39, 0.4);
-    border-radius: 50%;
-    background-color: transparent;
     text-decoration: none;
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
 
 .hero-social-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
 }
 
