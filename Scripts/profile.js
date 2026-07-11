@@ -6,17 +6,33 @@ if (profileCarousel) {
     const images = profileCarousel.querySelectorAll('.profile-img');
     const allItems = [video, ...images];
     let currentIndex = 0;
-    let carouselInterval;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function playVideo() {
+        video.currentTime = 0;
+        video.play().catch(() => {
+            // Playback blocked (e.g., autoplay policy)
+        });
+    }
+
+    function pauseVideo() {
+        video.pause();
+    }
 
     function showItem(index) {
         allItems.forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-        });
+            const isActive = i === index;
+            item.classList.toggle('active', isActive);
 
-        if (allItems[index] === video) {
-            video.currentTime = 0;
-            video.play();
-        }
+            // Control video play/pause
+            if (item === video) {
+                if (isActive) {
+                    playVideo();
+                } else {
+                    pauseVideo();
+                }
+            }
+        });
     }
 
     function rotateCarousel() {
@@ -32,6 +48,18 @@ if (profileCarousel) {
         }, duration);
     }
 
+    // Pause video when tab is hidden
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && allItems[currentIndex] === video) {
+            pauseVideo();
+        } else if (!document.hidden && allItems[currentIndex] === video) {
+            playVideo();
+        }
+    });
+
+    // Start carousel (respect prefers-reduced-motion)
     showItem(0);
-    rotateCarousel();
+    if (!prefersReducedMotion) {
+        rotateCarousel();
+    }
 }
