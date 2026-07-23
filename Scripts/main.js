@@ -100,12 +100,12 @@ modal.innerHTML = `
 
         <div class="modal-section">
             <h3>Problem</h3>
-            <p>A Cape Town trading company tracked warehouse staff training on paper — no visibility, no accountability. Training completion status was invisible to management, making it impossible to enforce compliance or plan workforce development.</p>
+            <p>A Cape Town trading company ran a critical internal process on paper — no visibility, no accountability. Operational status was invisible to management, making it impossible to enforce compliance or plan effectively.</p>
         </div>
 
         <div class="modal-section">
             <h3>Built</h3>
-            <p>As the sole developer, I built a full-stack training management platform:</p>
+            <p>As the sole developer, I built a full-stack internal operations platform:</p>
             <ul>
                 <li><strong>Frontend:</strong> React + Vite for a fast, responsive UI</li>
                 <li><strong>Backend:</strong> Node.js/Express REST API with structured endpoints</li>
@@ -117,7 +117,7 @@ modal.innerHTML = `
 
         <div class="modal-section">
             <h3>Outcome</h3>
-            <p>The system is now in daily production use across the company's warehouses. Staff can log training completion, managers can view real-time dashboards, and compliance is finally auditable.</p>
+            <p>The system is now in daily production use across the company's warehouses. Staff can log activity, managers can view real-time dashboards, and compliance is finally auditable.</p>
         </div>
 
         <div class="modal-section modal-images">
